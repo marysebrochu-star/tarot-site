@@ -1,7 +1,53 @@
-paiement Stripe
-↓
-retour sur ton site
-↓
-appel Supabase
-↓
-affichage du tirage
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Paiement confirmé</title>
+</head>
+<body>
+  <h1>Paiement confirmé ✅</h1>
+  <p id="message">Nous préparons votre tirage...</p>
+
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+    const supabase = createClient(
+      "https://aibagvvujcyrstrarztf.supabase.co",
+      "TA_CLE_ANON_PUBLIC_ICI"
+    );
+
+    async function run() {
+      const message = document.getElementById("message");
+
+      const params = new URLSearchParams(window.location.search);
+      const product = params.get("product");
+
+      if (!product) {
+        message.textContent = "Produit manquant dans l’URL.";
+        return;
+      }
+
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+
+      if (userError || !userData.user) {
+        message.innerHTML = 'Vous devez être connectée pour récupérer votre tirage.<br><br><a href="/">Retour à l’accueil</a>';
+        return;
+      }
+
+      const { data: drawId, error } = await supabase.rpc("create_draw_after_payment", {
+        p_product_code: product
+      });
+
+      if (error) {
+        console.error(error);
+        message.textContent = "Erreur pendant la création du tirage : " + error.message;
+        return;
+      }
+
+      window.location.href = "/draw.html?id=" + drawId;
+    }
+
+    run();
+  </script>
+</body>
+</html>
