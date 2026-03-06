@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Votre tirage</title>
+</head>
+<body>
+  <h1>Votre tirage</h1>
+  <pre id="result" style="white-space: pre-wrap; font-family: Arial, sans-serif;">
+Chargement du tirage...
+  </pre>
+
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+    const supabase = createClient(
+      "https://aibagvvujcyrstrarztf.supabase.co",
+      "TA_CLE_ANON_PUBLIC_ICI"
+    );
+
+    async function loadDraw() {
+      const result = document.getElementById("result");
+      const params = new URLSearchParams(window.location.search);
+      const drawId = params.get("id");
+
+      if (!drawId) {
+        result.textContent = "Aucun tirage trouvé.";
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("draws")
+        .select("id, summary, created_at")
+        .eq("id", drawId)
+        .single();
+
+      if (error) {
+        console.error(error);
+        result.textContent = "Erreur : " + error.message;
+        return;
+      }
+
+      result.textContent = data.summary || "Aucune synthèse disponible.";
+    }
+
+    loadDraw();
+  </script>
+</body>
+</html>
