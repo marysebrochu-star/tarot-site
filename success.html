@@ -13,7 +13,7 @@
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "TA_CLE_ANON_PUBLIC_ICI"
     );
 
     async function run() {
@@ -27,31 +27,6 @@
           message.textContent = "Erreur : produit manquant dans l’URL.";
           return;
         }
-
-        message.textContent = "Vérification de la connexion utilisateur...";
-
-      const { data: drawId, error } = await supabase.rpc("create_draw_after_payment", {
-  p_product_code: product
-});
-
-if (error) {
-  message.textContent = "Erreur création tirage : " + error.message;
-  return;
-}
-
-window.location.href = "/draw.html?id=" + drawId;
-
-        if (userError) {
-          message.textContent = "Erreur connexion utilisateur : " + userError.message;
-          return;
-        }
-
-        if (!userData.user) {
-          message.innerHTML = "Aucun utilisateur connecté.<br><br>Il faut être connectée à Supabase avant le paiement.";
-          return;
-        }
-
-        message.textContent = "Création du tirage...";
 
         const { data: drawId, error } = await supabase.rpc("create_draw_after_payment", {
           p_product_code: product
@@ -73,11 +48,6 @@ window.location.href = "/draw.html?id=" + drawId;
         message.textContent = "Erreur inattendue : " + (e.message || e);
       }
     }
-
-    run();
-  </script>
-</body>
-</html>
 
     run();
   </script>
