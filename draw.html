@@ -80,91 +80,93 @@
   <div id="summary">Chargement du tirage...</div>
   <div id="debug"></div>
 
-  <script type="module">
-    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+ <script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-    const supabase = createClient(
-      "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
-    );
+  const supabase = createClient(
+    "https://aibagvvujcyrstrarztf.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+  );
 
-    async function loadDraw() {
-      const summary = document.getElementById("summary");
-      const cardsContainer = document.getElementById("cards");
-      const debug = document.getElementById("debug");
-      const params = new URLSearchParams(window.location.search);
-      const drawId = params.get("id");
+  async function loadDraw() {
+    const summary = document.getElementById("summary");
+    const cardsContainer = document.getElementById("cards");
+    const debug = document.getElementById("debug");
+    const params = new URLSearchParams(window.location.search);
+    const drawId = params.get("id");
 
-      if (!drawId) {
-        summary.textContent = "Aucun tirage trouvé.";
-        return;
-      }
-
-      const { data: draw, error: drawError } = await supabase
-        .from("draws")
-        .select("id, summary, created_at")
-        .eq("id", drawId)
-        .single();
-
-      if (drawError) {
-        summary.textContent = "Erreur tirage : " + drawError.message;
-        return;
-      }
-
-      const { data: cards, error: cardsError } = await supabase
-        .from("draw_cards")
-        .select(`
-          position_index,
-          orientation,
-          cards (
-            name,
-            image_path
-          )
-        `)
-        .eq("draw_id", drawId)
-        .order("position_index", { ascending: true });
-
-      if (cardsError) {
-        summary.textContent = "Erreur cartes : " + cardsError.message;
-        return;
-      }
-
-      cardsContainer.innerHTML = "";
-
-      if (cards && cards.length > 0) {
-        cards.forEach((item) => {
-          const card = item.cards;
-
-          if (!card) {
-            const bad = document.createElement("div");
-            bad.textContent = "Carte liée introuvable.";
-            cardsContainer.appendChild(bad);
-            return;
-          }
-
-          const div = document.createElement("div");
-          div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
-
-          div.innerHTML = `
-            <img src="/${card.image_path}" alt="${card.name}">
-            <h3>${card.name}</h3>
-            <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
-          `;
-
-          cardsContainer.appendChild(div);
-        });
-
-        debug.textContent = cards.map(c =>
-          `${c.position_index} | ${c.cards?.name} | ${c.cards?.image_path || 'pas de image_path'}`
-        ).join("\n");
-      } else {
-        debug.textContent = "Aucune carte trouvée pour ce tirage.";
-      }
-
-      summary.textContent = draw.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
+    if (!drawId) {
+      summary.textContent = "Aucun tirage trouvé.";
+      return;
     }
 
-    loadDraw();
-  </script>
+    const { data: draw, error: drawError } = await supabase
+      .from("draws")
+      .select("id, summary, created_at")
+      .eq("id", drawId)
+      .single();
+
+    if (drawError) {
+      summary.textContent = "Erreur tirage : " + drawError.message;
+      return;
+    }
+
+    const { data: cards, error: cardsError } = await supabase
+      .from("draw_cards")
+      .select(`
+        position_index,
+        orientation,
+        card_id,
+        cards:card_id (
+          name,
+          image_path
+        )
+      `)
+      .eq("draw_id", drawId)
+      .order("position_index", { ascending: true });
+
+    if (cardsError) {
+      summary.textContent = "Erreur cartes : " + cardsError.message;
+      return;
+    }
+
+    cardsContainer.innerHTML = "";
+
+    if (cards && cards.length > 0) {
+      cards.forEach((item) => {
+        const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
+
+        if (!card) {
+          const bad = document.createElement("div");
+          bad.textContent = `Carte liée introuvable pour card_id ${item.card_id}`;
+          cardsContainer.appendChild(bad);
+          return;
+        }
+
+        const div = document.createElement("div");
+        div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
+
+        div.innerHTML = `
+          <img src="/${card.image_path}" alt="${card.name}">
+          <h3>${card.name}</h3>
+          <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
+        `;
+
+        cardsContainer.appendChild(div);
+      });
+
+      debug.textContent = cards.map(item => {
+        const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
+        return `${item.position_index} | ${card?.name || 'introuvable'} | ${card?.image_path || 'pas de image_path'}`;
+      }).join("\n");
+    } else {
+      debug.textContent = "Aucune carte trouvée pour ce tirage.";
+    }
+
+    summary.textContent = draw.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
+  }
+
+  loadDraw();
+</script>
 </body>
 </html>
