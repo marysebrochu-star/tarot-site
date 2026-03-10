@@ -126,7 +126,9 @@
 
       if (cards && cards.length > 0) {
         cards.forEach((item) => {
-          const card = item.cards;
+          const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
+          if (!card) return;
+
           const div = document.createElement("div");
           div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
 
@@ -140,7 +142,8 @@
         });
       }
 
-      summary.textContent = draw.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
+      summary.textContent =
+        draw.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
     }
 
     loadDraw();
