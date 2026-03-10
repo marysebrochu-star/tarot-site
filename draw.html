@@ -150,7 +150,7 @@
           const imageSrc = "/" + card.image_path;
 
           div.innerHTML = `
-            <img src="${imageSrc}" alt="${card.name}">
+            <<img src="/${card.image_path}" alt="${card.name}">>
             <h3>${card.name}</h3>
             <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
           `;
