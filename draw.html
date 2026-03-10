@@ -131,11 +131,21 @@
 
       cardsContainer.innerHTML = "";
 
-      if (!cards || cards.length === 0) {
-        debug.textContent = "Aucune carte trouvée dans draw_cards pour ce tirage.";
-      } else {
-        cards.forEach((item) => {
-          const card = item.cards;
+      if (cards && cards.length > 0) {
+  cards.forEach((item) => {
+    const card = item.cards;
+    const div = document.createElement("div");
+    div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
+
+    div.innerHTML = `
+      <img src="/${card.image_path}" alt="${card.name}">
+      <h3>${card.name}</h3>
+      <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
+    `;
+
+    cardsContainer.appendChild(div);
+  });
+};
 
           if (!card) {
             const bad = document.createElement("div");
