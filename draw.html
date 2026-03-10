@@ -131,7 +131,14 @@
 
       cardsContainer.innerHTML = "";
 
-      if (cards && cards.length > 0) {
+     if (cardsError) {
+  summary.textContent = "Erreur cartes : " + cardsError.message;
+  return;
+}
+
+cardsContainer.innerHTML = "";
+
+if (cards && cards.length > 0) {
   cards.forEach((item) => {
     const card = item.cards;
     const div = document.createElement("div");
@@ -145,7 +152,7 @@
 
     cardsContainer.appendChild(div);
   });
-};
+}
 
           if (!card) {
             const bad = document.createElement("div");
