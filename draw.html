@@ -3,43 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <title>Votre tirage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fffafc;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      width: 220px;
+      background: white;
+      border: 1px solid #e8dfe5;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .card.reversed img {
+      transform: rotate(180deg);
+    }
+
+    .card h3 {
+      margin: 12px 0 6px;
+      font-size: 18px;
+    }
+
+    .orientation {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    #summary {
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid #e8dfe5;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+  </style>
 </head>
 <body>
   <h1>Votre tirage</h1>
-  <pre id="result" style="white-space: pre-wrap; font-family: Arial, sans-serif;">
-Chargement du tirage...
-  </pre>
+
+  <div id="cards" class="cards"></div>
+
+  <div id="summary">Chargement du tirage...</div>
 
   <script type="module">
     import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "TA_CLE_ANON_PUBLIC_ICI"
     );
 
     async function loadDraw() {
-      const result = document.getElementById("result");
+      const summary = document.getElementById("summary");
+      const cardsContainer = document.getElementById("cards");
       const params = new URLSearchParams(window.location.search);
       const drawId = params.get("id");
 
       if (!drawId) {
-        result.textContent = "Aucun tirage trouvé.";
+        summary.textContent = "Aucun tirage trouvé.";
         return;
       }
 
-      const { data, error } = await supabase
+      const { data: draw, error: drawError } = await supabase
         .from("draws")
         .select("id, summary, created_at")
         .eq("id", drawId)
         .single();
 
-      if (error) {
-        result.textContent = "Erreur : " + error.message;
+      if (drawError) {
+        summary.textContent = "Erreur tirage : " + drawError.message;
         return;
       }
 
-      result.textContent = data.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
+      const { data: cards, error: cardsError } = await supabase
+        .from("draw_cards")
+        .select(`
+          position_index,
+          orientation,
+          cards (
+            name,
+            image_path
+          )
+        `)
+        .eq("draw_id", drawId)
+        .order("position_index", { ascending: true });
+
+      if (cardsError) {
+        summary.textContent = "Erreur cartes : " + cardsError.message;
+        return;
+      }
+
+      cardsContainer.innerHTML = "";
+
+      if (cards && cards.length > 0) {
+        cards.forEach((item) => {
+          const card = item.cards;
+          const div = document.createElement("div");
+          div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
+
+          div.innerHTML = `
+            <img src="/${card.image_path}" alt="${card.name}">
+            <h3>${card.name}</h3>
+            <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
+          `;
+
+          cardsContainer.appendChild(div);
+        });
+      }
+
+      summary.textContent = draw.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
     }
 
     loadDraw();
