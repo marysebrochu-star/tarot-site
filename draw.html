@@ -85,7 +85,7 @@
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "TA_CLE_ANON_PUBLIC_ICI"
     );
 
     async function loadDraw() {
@@ -131,28 +131,9 @@
 
       cardsContainer.innerHTML = "";
 
-     if (cardsError) {
-  summary.textContent = "Erreur cartes : " + cardsError.message;
-  return;
-}
-
-cardsContainer.innerHTML = "";
-
-if (cards && cards.length > 0) {
-  cards.forEach((item) => {
-    const card = item.cards;
-    const div = document.createElement("div");
-    div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
-
-    div.innerHTML = `
-      <img src="/${card.image_path}" alt="${card.name}">
-      <h3>${card.name}</h3>
-      <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
-    `;
-
-    cardsContainer.appendChild(div);
-  });
-}
+      if (cards && cards.length > 0) {
+        cards.forEach((item) => {
+          const card = item.cards;
 
           if (!card) {
             const bad = document.createElement("div");
@@ -164,10 +145,8 @@ if (cards && cards.length > 0) {
           const div = document.createElement("div");
           div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
 
-          const imageSrc = "/" + card.image_path;
-
           div.innerHTML = `
-            <<img src="/${card.image_path}" alt="${card.name}">>
+            <img src="/${card.image_path}" alt="${card.name}">
             <h3>${card.name}</h3>
             <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
           `;
@@ -178,6 +157,8 @@ if (cards && cards.length > 0) {
         debug.textContent = cards.map(c =>
           `${c.position_index} | ${c.cards?.name} | ${c.cards?.image_path || 'pas de image_path'}`
         ).join("\n");
+      } else {
+        debug.textContent = "Aucune carte trouvée pour ce tirage.";
       }
 
       summary.textContent = draw.summary || "Votre tirage est en préparation. Rechargez la page dans quelques secondes.";
