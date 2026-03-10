@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto;
       padding: 20px;
       background: #fffafc;
@@ -15,6 +15,7 @@
 
     h1 {
       text-align: center;
+      margin-bottom: 30px;
     }
 
     .cards {
@@ -67,7 +68,6 @@
   </style>
 </head>
 <body>
-<div id="cards" style="display:flex; gap:20px; margin-top:20px;"></div>
   <h1>Votre tirage</h1>
 
   <div id="cards" class="cards"></div>
@@ -79,7 +79,7 @@
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "TA_CLE_ANON_PUBLIC_ICI"
     );
 
     async function loadDraw() {
@@ -131,7 +131,7 @@
           div.className = "card" + (item.orientation === "reversed" ? " reversed" : "");
 
           div.innerHTML = `
-       <img src="/images/${card.image_path}" alt="${card.name}">
+            <img src="/${card.image_path}" alt="${card.name}">
             <h3>${card.name}</h3>
             <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
           `;
