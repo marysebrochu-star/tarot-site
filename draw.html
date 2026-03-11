@@ -155,10 +155,7 @@
         cardsContainer.appendChild(div);
       });
 
-      debug.textContent = cards.map(item => {
-        const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
-        return `${item.position_index} | ${card?.name || 'introuvable'} | ${card?.image_path || 'pas de image_path'}`;
-      }).join("\n");
+    
     } else {
       debug.textContent = "Aucune carte trouvée pour ce tirage.";
     }
