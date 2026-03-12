@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
 
+<title>Signification de la carte du tarot</title>
+
+<meta name="description" content="Découvrez la signification complète de la carte du tarot : amour, travail, avenir et tirage tarot.">
+
+<link rel="canonical" href="https://arcanaoracle.org/">
+
+<style>
+
+body{
+background:#07070f;
+color:white;
+font-family: Georgia, serif;
+text-align:center;
+padding:40px;
+}
+
+h1{
+color:#d4af37;
+font-size:38px;
+}
+
+.card{
+margin-top:30px;
+}
+
+.card img{
+width:260px;
+border-radius:12px;
+box-shadow:0 0 30px rgba(255,215,0,0.4);
+}
+
+.text{
+max-width:700px;
+margin:auto;
+margin-top:30px;
+line-height:1.7;
+}
+
+button{
+margin-top:40px;
+padding:14px 30px;
+background:#d4af37;
+border:none;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="card-title">Carte du Tarot</h1>
+
+<div class="card">
+<img id="card-image" src="">
+</div>
+
+<div class="text">
+
+<h2>Signification générale</h2>
+
+<p id="card-meaning">
+Cette carte du tarot révèle un message puissant pour votre chemin de vie.
+</p>
+
+<h2>Amour</h2>
+
+<p>
+Dans un tirage amoureux, cette carte évoque des transformations importantes et une évolution émotionnelle.
+</p>
+
+<h2>Travail</h2>
+
+<p>
+Sur le plan professionnel, cette carte peut représenter une opportunité ou une décision importante.
+</p>
+
+</div>
+
+<button onclick="window.location.href='https://arcanaoracle.org/draw.html'">
+Faire un tirage tarot
+</button>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const card = params.get("card");
+
+const cards = {
+
+force:{
+name:"La Force",
+image:"/images/tarot/la-force.webp",
+meaning:"La Force symbolise la maîtrise de soi, le courage et la douceur intérieure."
+},
+
+bateleur:{
+name:"Le Bateleur",
+image:"/images/tarot/le-bateleur.webp",
+meaning:"Le Bateleur représente un nouveau départ, l’initiative et la créativité."
+},
+
+diable:{
+name:"Le Diable",
+image:"/images/tarot/le-diable.webp",
+meaning:"Le Diable révèle les attachements, les passions et les illusions."
+}
+
+};
+
+if(cards[card]){
+
+document.getElementById("card-title").textContent=cards[card].name;
+
+document.getElementById("card-image").src=cards[card].image;
+
+document.getElementById("card-meaning").textContent=cards[card].meaning;
+
+}
+
+</script>
+
+</body>
+</html>
