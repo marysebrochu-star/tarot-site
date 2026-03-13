@@ -338,7 +338,8 @@
         .from("draws")
         .select("id, summary, created_at")
         .eq("id", drawId)
-        .single();
+        .maybeSingle()
+;
 
       if (drawError) {
         showError("Erreur tirage : " + drawError.message);
