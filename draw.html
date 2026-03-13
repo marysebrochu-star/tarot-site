@@ -16,7 +16,7 @@
       --shadow:0 0 24px rgba(212,175,55,0.12);
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; }
 
     body{
       margin:0;
@@ -304,10 +304,7 @@
 
       for (const item of cards){
         const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
-
-        if (!card){
-          continue;
-        }
+        if (!card) continue;
 
         const element = createCardElement(item);
         cardsContainer.appendChild(element);
@@ -383,3 +380,4 @@
   </script>
 </body>
 </html>
+
