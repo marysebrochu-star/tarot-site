@@ -2,14 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Tirage Tarot en ligne – Arcana Oracle | Passé Présent Futur</title>
-<meta name="description" content="Découvrez votre tirage tarot en ligne avec Arcana Oracle. Un tirage mystique passé, présent et futur pour éclairer votre chemin et révéler les messages des arcanes.">
-<meta name="keywords" content="tarot en ligne, tirage tarot gratuit, tarot amour, tirage passé présent futur, tarot divinatoire, arcana oracle">
-<meta property="og:title" content="Arcana Oracle – Tirage Tarot Mystique">
-<meta property="og:description" content="Découvrez votre tirage tarot en ligne et laissez les arcanes révéler votre destinée.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://arcanaoracle.org">
-
+  <title>Arcana Oracle — Votre tirage</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
@@ -23,7 +16,7 @@
       --shadow:0 0 24px rgba(212,175,55,0.12);
     }
 
-    * { box-sizing: border-box; }
+    *{box-sizing:border-box}
 
     body{
       margin:0;
@@ -259,7 +252,7 @@
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "TA_CLE_ANON_PUBLIC_ICI"
     );
 
     const POSITION_LABELS = {
@@ -311,7 +304,10 @@
 
       for (const item of cards){
         const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
-        if (!card) continue;
+
+        if (!card){
+          continue;
+        }
 
         const element = createCardElement(item);
         cardsContainer.appendChild(element);
