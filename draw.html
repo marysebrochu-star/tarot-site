@@ -370,25 +370,32 @@
       return slot;
     }
 
-    async function animateCards(cards){
-      const cardsContainer = document.getElementById("cards");
+   async function animateCards(cards){
+  const cardsContainer = document.getElementById("cards");
+  const shuffleZone = document.getElementById("shuffle-zone");
+  const loading = document.getElementById("loading");
 
-      for (const item of cards){
-        const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
-        if (!card) continue;
+  await sleep(2200);
 
-        const element = createCardElement(item);
-        cardsContainer.appendChild(element);
+  shuffleZone.style.display = "none";
+  loading.textContent = "Les cartes se dévoilent…";
 
-        await sleep(120);
-        element.classList.add("show");
+  for (const item of cards){
+    const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
+    if (!card) continue;
 
-        await sleep(650);
-        element.classList.add("flipped");
+    const element = createCardElement(item);
+    cardsContainer.appendChild(element);
 
-        await sleep(420);
-      }
-    }
+    await sleep(120);
+    element.classList.add("show");
+
+    await sleep(650);
+    element.classList.add("flipped");
+
+    await sleep(420);
+  }
+}
 
     async function loadDraw() {
       const summary = document.getElementById("summary");
