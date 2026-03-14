@@ -1,182 +1,355 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Arcana Oracle – Carte du Tarot</title>
+  <meta name="description" content="Découvrez la signification complète d'une carte du tarot : amour, travail, avenir et message spirituel avec Arcana Oracle.">
+  <meta name="keywords" content="signification carte tarot, tarot amour, tarot travail, tarot avenir, arcana oracle">
+  <link rel="canonical" href="https://arcanaoracle.org/carte-tarot.html">
 
-<title>Signification de la carte du tarot</title>
+  <style>
+    body{
+      margin:0;
+      padding:40px 20px 60px;
+      background:#07080d;
+      color:#f5f5f5;
+      font-family: Georgia, serif;
+      text-align:center;
+    }
 
-<meta name="description" content="Découvrez la signification complète de la carte du tarot : amour, travail, avenir et tirage tarot.">
+    .container{
+      max-width:900px;
+      margin:0 auto;
+    }
 
-<link rel="canonical" href="https://arcanaoracle.org/">
+    .symbol{
+      color:#d4af37;
+      font-size:28px;
+      margin-bottom:12px;
+      letter-spacing:6px;
+    }
 
-<style>
+    h1{
+      color:#d4af37;
+      font-size:42px;
+      margin-bottom:20px;
+    }
 
-body{
-background:#07070f;
-color:white;
-font-family: Georgia, serif;
-text-align:center;
-padding:40px;
-}
+    .card img{
+      width:280px;
+      max-width:90%;
+      border-radius:14px;
+      box-shadow:0 0 30px rgba(212,175,55,0.35);
+    }
 
-.mystic-message{
-margin-top:30px;
-font-style:italic;
-color:#d4af37;
-}
+    .text{
+      max-width:760px;
+      margin:30px auto 0;
+      text-align:left;
+      line-height:1.7;
+      font-size:22px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(212,175,55,0.22);
+      border-radius:18px;
+      padding:26px;
+    }
 
-.share{
-margin-top:30px;
-}
+    h2{
+      color:#d4af37;
+      margin-top:26px;
+      margin-bottom:10px;
+      font-size:28px;
+    }
 
-.share a{
-color:white;
-margin:10px;
-text-decoration:none;
-}
-  
-h1{
-color:#d4af37;
-font-size:38px;
-}
+    .mystic-message{
+      margin-top:30px;
+      color:#d4af37;
+      font-style:italic;
+      font-size:24px;
+      text-align:center;
+    }
 
-.card{
-margin-top:30px;
-}
+    .share{
+      margin-top:28px;
+      text-align:center;
+    }
 
-.card img{
-width:260px;
-border-radius:12px;
-box-shadow:0 0 30px rgba(255,215,0,0.4);
-}
+    .share a{
+      color:#f5f5f5;
+      margin:0 10px;
+      text-decoration:none;
+    }
 
-.text{
-max-width:700px;
-margin:auto;
-margin-top:30px;
-line-height:1.7;
-}
+    .share a:hover{
+      color:#d4af37;
+    }
 
-button{
-margin-top:40px;
-padding:14px 30px;
-background:#d4af37;
-border:none;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-}
+    .cta{
+      margin-top:34px;
+      text-align:center;
+    }
 
-</style>
-
+    .cta a{
+      display:inline-block;
+      background:#d4af37;
+      color:#000;
+      padding:14px 26px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <div class="symbol">☾ ✦ ☽</div>
 
-<h1 id="card-title">Carte du Tarot</h1>
+    <h1 id="card-title">Carte du Tarot</h1>
 
-<div class="card">
-<img id="card-image" src="">
-</div>
-  <div class="mystic-message">
+    <div class="card">
+      <img id="card-image" src="" alt="">
+    </div>
 
-<h2>Message de l'univers</h2>
+    <div class="mystic-message">
+      <p id="oracle-message">Le tarot révèle un message pour votre chemin intérieur.</p>
+    </div>
 
-<p id="oracle-message">
-Cette carte apparaît pour vous rappeler que votre intuition connaît déjà la réponse.
-Prenez un moment pour écouter votre voix intérieure.
-</p>
+    <div class="text">
+      <h2>Signification générale</h2>
+      <p id="card-meaning">
+        Cette carte du tarot révèle un message puissant pour votre chemin de vie.
+      </p>
 
-</div>
+      <h2>Amour</h2>
+      <p id="card-love">
+        Dans un tirage amoureux, cette carte évoque des transformations importantes et une évolution émotionnelle.
+      </p>
 
-<div class="share">
+      <h2>Travail</h2>
+      <p id="card-work">
+        Sur le plan professionnel, cette carte peut représenter une opportunité ou une décision importante.
+      </p>
+    </div>
 
-<h3>Partager votre carte</h3>
+    <div class="share">
+      <h2>Partager cette carte</h2>
+      <a id="share-facebook" target="_blank">Facebook</a>
+      |
+      <a id="share-twitter" target="_blank">Twitter</a>
+      |
+      <a id="share-whatsapp" target="_blank">WhatsApp</a>
+    </div>
 
-<a id="share-facebook" target="_blank">Facebook</a> |
-<a id="share-twitter" target="_blank">Twitter</a> |
-<a id="share-whatsapp" target="_blank">WhatsApp</a>
+    <div class="cta">
+      <a href="/success.html?product=small">Faire un tirage tarot</a>
+    </div>
+  </div>
 
-</div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const card = params.get("card");
 
+    const cards = {
+      "mat": {
+        name: "Le Mat",
+        image: "/images/tarot/le-mat.webp",
+        meaning: "Le Mat symbolise le départ, l’élan de liberté, l’appel de l’inconnu et l’ouverture à une nouvelle aventure.",
+        love: "En amour, Le Mat annonce un besoin de liberté, une rencontre inattendue ou une relation qui échappe aux cadres habituels.",
+        work: "Au travail, Le Mat invite à oser un nouveau chemin, à quitter une situation figée ou à suivre une inspiration profonde.",
+        message: "Le destin vous souffle d’avancer sans tout contrôler. Un nouveau chemin s’ouvre."
+      },
+      "bateleur": {
+        name: "Le Bateleur",
+        image: "/images/tarot/le-bateleur.webp",
+        meaning: "Le Bateleur représente le commencement, l’initiative, la créativité et le pouvoir d’agir maintenant.",
+        love: "En amour, Le Bateleur parle d’un nouveau départ, d’un flirt, d’une ouverture sincère ou d’une dynamique fraîche dans le couple.",
+        work: "Dans le travail, il annonce une opportunité, un projet naissant, une idée à concrétiser ou un talent à mettre en avant.",
+        message: "Le moment est venu de commencer. Vous avez déjà les outils nécessaires."
+      },
+      "papesse": {
+        name: "La Papesse",
+        image: "/images/tarot/la-papesse.webp",
+        meaning: "La Papesse symbolise l’intuition, la sagesse intérieure, le secret, l’observation et la patience.",
+        love: "En amour, elle parle de retenue, de profondeur, de sentiments cachés ou d’un lien qui mûrit en silence.",
+        work: "Au travail, elle invite à préparer, étudier, observer et ne pas agir trop vite.",
+        message: "Écoutez votre voix intérieure. Ce qui est silencieux est souvent ce qui est vrai."
+      },
+      "imperatrice": {
+        name: "L’Impératrice",
+        image: "/images/tarot/l-imperatrice.webp",
+        meaning: "L’Impératrice évoque la création, l’abondance, l’intelligence, la féminité et l’expansion.",
+        love: "En amour, elle annonce une relation florissante, des sentiments exprimés, de la sensualité et de la joie.",
+        work: "Dans le travail, elle favorise les idées fertiles, les projets qui prennent forme et la communication.",
+        message: "Laissez grandir ce qui demande à naître. Votre énergie crée déjà le futur."
+      },
+      "empereur": {
+        name: "L’Empereur",
+        image: "/images/tarot/l-empereur.webp",
+        meaning: "L’Empereur symbolise la structure, la stabilité, l’autorité, la protection et le concret.",
+        love: "En amour, il indique un besoin de sécurité, de loyauté, d’engagement ou d’ancrage.",
+        work: "Au travail, il parle d’ordre, de stratégie, de responsabilité et d’assise solide.",
+        message: "Stabilisez, structurez, affirmez. Ce qui a des fondations durera."
+      },
+      "pape": {
+        name: "Le Pape",
+        image: "/images/tarot/le-pape.webp",
+        meaning: "Le Pape représente le conseil, la sagesse, la tradition, la transmission et la guidance.",
+        love: "En amour, il favorise les liens sérieux, la fidélité, la bénédiction d’un engagement ou une discussion essentielle.",
+        work: "Au travail, il indique l’apprentissage, le mentorat, les valeurs solides et la crédibilité.",
+        message: "Un conseil juste peut changer votre route. Restez à l’écoute de la sagesse."
+      },
+      "amoureux": {
+        name: "L’Amoureux",
+        image: "/images/tarot/l-amoureux.webp",
+        meaning: "L’Amoureux parle du choix, du désir, de l’union, de l’alignement du cœur et des décisions affectives.",
+        love: "En amour, il annonce une rencontre, un choix sentimental ou une mise en vérité des sentiments.",
+        work: "Dans le travail, il peut signaler une décision importante ou la nécessité de choisir ce qui vous correspond vraiment.",
+        message: "Ce que vous choisissez avec le cœur transforme votre destinée."
+      },
+      "chariot": {
+        name: "Le Chariot",
+        image: "/images/tarot/le-chariot.webp",
+        meaning: "Le Chariot symbolise l’avancée, la victoire, la volonté, le mouvement et la maîtrise.",
+        love: "En amour, il annonce une relation qui progresse, une conquête ou un élan déterminé.",
+        work: "Au travail, il favorise la réussite, la progression, les déplacements et les prises de décision fermes.",
+        message: "Vous êtes en mouvement. Gardez la direction et avancez avec assurance."
+      },
+      "justice": {
+        name: "La Justice",
+        image: "/images/tarot/la-justice.webp",
+        meaning: "La Justice représente l’équilibre, la vérité, la responsabilité, les décisions justes et la clarté.",
+        love: "En amour, elle parle d’honnêteté, de mise au point, d’engagement clair ou de réajustement nécessaire.",
+        work: "Dans le travail, elle annonce un contrat, une décision équilibrée, un examen lucide de la situation.",
+        message: "La vérité éclaire la route. Ce qui est juste trouvera sa place."
+      },
+      "hermite": {
+        name: "L’Hermite",
+        image: "/images/tarot/l-hermite.webp",
+        meaning: "L’Hermite symbolise l’introspection, la sagesse profonde, le recul et la maturation intérieure.",
+        love: "En amour, il peut annoncer une pause, un besoin de réflexion ou une relation profonde mais discrète.",
+        work: "Au travail, il invite à prendre le temps, à approfondir, à chercher la qualité plutôt que la vitesse.",
+        message: "Le recul n’est pas un arrêt. C’est une préparation à une vérité plus profonde."
+      },
+      "roue-de-fortune": {
+        name: "La Roue de Fortune",
+        image: "/images/tarot/la-roue-de-fortune.webp",
+        meaning: "La Roue de Fortune évoque les cycles, le changement, le destin et les tournants inattendus.",
+        love: "En amour, elle signale une évolution soudaine, un nouveau cycle ou une situation qui bascule.",
+        work: "Dans le travail, elle annonce un changement de cap, une opportunité imprévue ou un mouvement favorable.",
+        message: "Le destin tourne. Ce qui change maintenant ouvre une nouvelle étape."
+      },
+      "force": {
+        name: "La Force",
+        image: "/images/tarot/la-force.webp",
+        meaning: "La Force symbolise le courage, la maîtrise de soi, la puissance intérieure et la douceur consciente.",
+        love: "En amour, elle indique une relation qui demande patience, confiance et présence émotionnelle.",
+        work: "Au travail, elle parle d’endurance, de leadership calme et de stabilité intérieure face à la pression.",
+        message: "Votre vraie puissance n’est pas dans la contrainte, mais dans la maîtrise intérieure."
+      },
+      "pendu": {
+        name: "Le Pendu",
+        image: "/images/tarot/le-pendu.webp",
+        meaning: "Le Pendu évoque la pause, le lâcher-prise, un regard nouveau et la suspension nécessaire.",
+        love: "En amour, il indique une attente, une relation en transition ou un besoin de voir autrement.",
+        work: "Dans le travail, il suggère de ralentir, de reconsidérer une situation et de ne pas forcer le mouvement.",
+        message: "Ce qui semble bloqué prépare souvent une compréhension nouvelle."
+      },
+      "arcane-sans-nom": {
+        name: "L’Arcane Sans Nom",
+        image: "/images/tarot/l-arcane-sans-nom.webp",
+        meaning: "Cette carte symbolise la transformation radicale, la fin d’un cycle et la renaissance.",
+        love: "En amour, elle marque une rupture, une métamorphose ou la nécessité de laisser partir l’ancien.",
+        work: "Au travail, elle annonce une fin, un changement puissant ou une reconstruction complète.",
+        message: "Ce qui s’achève libère un espace sacré pour la renaissance."
+      },
+      "temperance": {
+        name: "Tempérance",
+        image: "/images/tarot/temperance.webp",
+        meaning: "Tempérance représente l’harmonie, la guérison, l’équilibre émotionnel et la fluidité.",
+        love: "En amour, elle favorise la douceur, le dialogue, l’apaisement et la guérison du lien.",
+        work: "Dans le travail, elle parle d’équilibre, de coopération, de patience et d’ajustements harmonieux.",
+        message: "Laissez la vie rétablir l’équilibre. La guérison est déjà en chemin."
+      },
+      "diable": {
+        name: "Le Diable",
+        image: "/images/tarot/le-diable.webp",
+        meaning: "Le Diable révèle les attachements, les désirs, les passions, les peurs et les illusions de contrôle.",
+        love: "En amour, il peut parler de passion intense, de dépendance émotionnelle ou d’un lien magnétique.",
+        work: "Au travail, il signale la tentation, la pression, l’ambition dévorante ou la difficulté à lâcher prise.",
+        message: "Regardez ce qui vous attache. La lucidité est le premier pas vers la liberté."
+      },
+      "maison-dieu": {
+        name: "La Maison Dieu",
+        image: "/images/tarot/la-maison-dieu.webp",
+        meaning: "La Maison Dieu annonce une révélation, une rupture nécessaire, un choc libérateur et un effondrement salutaire.",
+        love: "En amour, elle peut signaler une vérité brutale, une rupture ou un changement soudain dans la relation.",
+        work: "Dans le travail, elle parle d’un bouleversement, d’une restructuration ou d’un réveil puissant.",
+        message: "Ce qui tombe n’était plus solide. La vérité prépare une reconstruction plus juste."
+      },
+      "etoile": {
+        name: "L’Étoile",
+        image: "/images/tarot/l-etoile.webp",
+        meaning: "L’Étoile symbolise l’espoir, l’inspiration, la protection, la beauté intérieure et la confiance.",
+        love: "En amour, elle annonce un lien sincère, une guérison affective et une ouverture lumineuse.",
+        work: "Au travail, elle favorise les projets inspirés, la créativité et la visibilité positive.",
+        message: "L’espoir n’est pas une illusion. Il est une direction."
+      },
+      "lune": {
+        name: "La Lune",
+        image: "/images/tarot/la-lune.webp",
+        meaning: "La Lune parle d’intuition, d’imaginaire, d’émotions profondes, mais aussi de confusion et d’ambiguïté.",
+        love: "En amour, elle évoque la sensibilité, les non-dits, les projections ou les peurs affectives.",
+        work: "Dans le travail, elle invite à écouter l’intuition, tout en se méfiant du flou ou des illusions.",
+        message: "Tout n’est pas encore visible. Écoutez ce que votre intuition murmure."
+      },
+      "soleil": {
+        name: "Le Soleil",
+        image: "/images/tarot/le-soleil.webp",
+        meaning: "Le Soleil symbolise la réussite, la joie, la clarté, la vitalité et l’épanouissement.",
+        love: "En amour, il annonce le bonheur, la sincérité, l’évidence du cœur et une relation lumineuse.",
+        work: "Au travail, il favorise la reconnaissance, la réussite et l’énergie positive.",
+        message: "La lumière revient. Ce qui était obscur devient clair et vivant."
+      },
+      "jugement": {
+        name: "Le Jugement",
+        image: "/images/tarot/le-jugement.webp",
+        meaning: "Le Jugement représente l’éveil, l’appel intérieur, la libération et la renaissance consciente.",
+        love: "En amour, il signale une réconciliation, un réveil du cœur ou une décision profonde.",
+        work: "Dans le travail, il parle d’une vocation, d’un appel à changer de niveau ou d’une reconnaissance importante.",
+        message: "Répondez à l’appel. Une nouvelle conscience veut émerger."
+      },
+      "monde": {
+        name: "Le Monde",
+        image: "/images/tarot/le-monde.webp",
+        meaning: "Le Monde symbolise l’accomplissement, l’harmonie, la réussite complète et l’unité.",
+        love: "En amour, il annonce une plénitude, une union harmonieuse ou une relation accomplie.",
+        work: "Dans le travail, il indique le succès, la reconnaissance, l’aboutissement d’un cycle.",
+        message: "Ce que vous cherchez s’achève dans une forme d’unité et d’accomplissement."
+      }
+    };
 
-<div class="text">
+    if (cards[card]) {
+      document.getElementById("card-title").textContent = cards[card].name;
+      document.getElementById("card-image").src = cards[card].image;
+      document.getElementById("card-image").alt = cards[card].name;
+      document.getElementById("card-meaning").textContent = cards[card].meaning;
+      document.getElementById("card-love").textContent = cards[card].love;
+      document.getElementById("card-work").textContent = cards[card].work;
+      document.getElementById("oracle-message").textContent = cards[card].message;
+      document.title = cards[card].name + " – Signification Tarot | Arcana Oracle";
+    }
 
-<h2>Signification générale</h2>
+    const pageURL = window.location.href;
+    const text = "Découvrez cette carte du tarot sur Arcana Oracle ✨";
 
-<p id="card-meaning">
-Cette carte du tarot révèle un message puissant pour votre chemin de vie.
-</p>
+    document.getElementById("share-facebook").href =
+      "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
 
-<h2>Amour</h2>
+    document.getElementById("share-twitter").href =
+      "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(pageURL);
 
-<p>
-Dans un tirage amoureux, cette carte évoque des transformations importantes et une évolution émotionnelle.
-</p>
-
-<h2>Travail</h2>
-
-<p>
-Sur le plan professionnel, cette carte peut représenter une opportunité ou une décision importante.
-</p>
-
-</div>
-
-<button onclick="window.location.href='https://arcanaoracle.org/draw.html'">
-Faire un tirage tarot
-</button>
-
-<script>
-
-const params = new URLSearchParams(window.location.search);
-const card = params.get("card");
-
-const cards = {
-
-force:{
-name:"La Force",
-image:"/images/tarot/la-force.webp",
-meaning:"La Force symbolise la maîtrise de soi, le courage et la douceur intérieure."
-},
-
-bateleur:{
-name:"Le Bateleur",
-image:"/images/tarot/le-bateleur.webp",
-meaning:"Le Bateleur représente un nouveau départ, l’initiative et la créativité."
-},
-
-diable:{
-name:"Le Diable",
-image:"/images/tarot/le-diable.webp",
-meaning:"Le Diable révèle les attachements, les passions et les illusions."
-}
-
-};
-
-if(cards[card]){
-
-document.getElementById("card-title").textContent=cards[card].name;
-
-document.getElementById("card-image").src=cards[card].image;
-
-document.getElementById("card-meaning").textContent=cards[card].meaning;
-
-}
-
-</script>
-  
-const pageURL = window.location.href;
-const text = "Découvrez votre carte du tarot sur Arcana Oracle ✨";
-
-document.getElementById("share-facebook").href =
-"https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
-
-document.getElementById("share-twitter").href =
-"https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(pageURL);
-
-document.getElementById("share-whatsapp").href =
-"https://api.whatsapp.com/send?text=" + encodeURIComponent(text + " " + pageURL);
-  
-
+    document.getElementById("share-whatsapp").href =
+      "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + " " + pageURL);
+  </script>
 </body>
 </html>
