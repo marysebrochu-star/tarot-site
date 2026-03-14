@@ -59,6 +59,74 @@
       font-size:24px;
       margin-bottom:34px;
     }
+    .shuffle-zone{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  margin:10px 0 34px;
+  min-height:390px;
+}
+
+.shuffle-card{
+  width:180px;
+  height:300px;
+  border-radius:18px;
+  border:1px solid rgba(212,175,55,0.28);
+  background:
+    radial-gradient(circle at center, rgba(212,175,55,0.18), transparent 45%),
+    linear-gradient(180deg, #121521 0%, #0d1018 100%);
+  box-shadow:0 0 24px rgba(212,175,55,0.12);
+  position:relative;
+  transform-origin:center center;
+}
+
+.shuffle-card::before{
+  content:"☾ ✦ ☽";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-family:'Cinzel', serif;
+  font-size:34px;
+  letter-spacing:4px;
+}
+
+.shuffle-1{
+  animation:shuffleLeft 1.2s ease-in-out infinite;
+}
+.shuffle-2{
+  animation:shuffleCenter 1.2s ease-in-out infinite;
+}
+.shuffle-3{
+  animation:shuffleRight 1.2s ease-in-out infinite;
+}
+
+@keyframes shuffleLeft{
+  0%{transform:translateX(0) rotate(-6deg);}
+  25%{transform:translateX(18px) rotate(-10deg);}
+  50%{transform:translateX(6px) rotate(-3deg);}
+  75%{transform:translateX(22px) rotate(-8deg);}
+  100%{transform:translateX(0) rotate(-6deg);}
+}
+
+@keyframes shuffleCenter{
+  0%{transform:translateY(0) rotate(0deg);}
+  25%{transform:translateY(-10px) rotate(2deg);}
+  50%{transform:translateY(0) rotate(0deg);}
+  75%{transform:translateY(-8px) rotate(-2deg);}
+  100%{transform:translateY(0) rotate(0deg);}
+}
+
+@keyframes shuffleRight{
+  0%{transform:translateX(0) rotate(6deg);}
+  25%{transform:translateX(-18px) rotate(10deg);}
+  50%{transform:translateX(-6px) rotate(3deg);}
+  75%{transform:translateX(-22px) rotate(8deg);}
+  100%{transform:translateX(0) rotate(6deg);}
+}
 
     .cards{
       display:flex;
