@@ -30,6 +30,12 @@
       font-family:'Cormorant Garamond', serif;
       padding:40px 20px 60px;
     }
+    .meaning{
+font-size:18px;
+margin-top:8px;
+color:#ddd;
+}
+
 
     .container{
       max-width:1200px;
@@ -366,6 +372,18 @@
           <div class="orientation">${orientationLabel}</div>
         </div>
       `;
+      const meaning =
+item.orientation === "upright"
+? card.meaning_upright
+: card.meaning_reversed;
+
+div.innerHTML = `
+  <img src="/${card.image_path}" alt="${card.name}">
+  <h3>${card.name}</h3>
+  <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
+  <p class="meaning">${meaning}</p>
+`;
+
 
       return slot;
     }
