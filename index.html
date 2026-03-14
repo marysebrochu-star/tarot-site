@@ -29,6 +29,43 @@
 </head>
 <style>
 
+  .tirages{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:60px;
+}
+
+.tirage{
+background:#111;
+border:1px solid gold;
+border-radius:12px;
+padding:25px;
+width:260px;
+text-align:center;
+}
+
+.tirage h3{
+color:gold;
+font-size:24px;
+margin-bottom:10px;
+}
+
+.tirage p{
+color:white;
+margin-bottom:20px;
+}
+
+.btn{
+background:gold;
+color:black;
+padding:12px 22px;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
 body{
 background:#0b0b0f;
 color:#f5f5f5;
@@ -97,6 +134,15 @@ display:block;
 margin:10px auto 20px auto;
 
 }
+
+.section-title{
+text-align:center;
+color:gold;
+font-size:36px;
+margin-top:60px;
+margin-bottom:40px;
+}
+ 
   
 </style>
 </head>
@@ -131,7 +177,29 @@ vos choix amoureux et les transformations à venir.
 </p>
 
 </div>
- 
+
+<div class="tirages">
+
+<div class="tirage">
+<h3>🔮 Petit tirage</h3>
+<p>3 cartes pour éclairer votre situation actuelle.</p>
+<a href="/success.html?product=small" class="btn">Commencer</a>
+</div>
+
+<div class="tirage">
+<h3>🃏 Tirage moyen</h3>
+<p>7 cartes pour comprendre votre chemin et vos blocages.</p>
+<a href="/success.html?product=medium" class="btn">Découvrir</a>
+</div>
+
+<div class="tirage">
+<h3>🌙 Tirage développement</h3>
+<p>Analyse complète avec les arcanes majeurs et mineurs.</p>
+<a href="/success.html?product=deep" class="btn">Explorer</a>
+</div>
+
+</div>
+
 
 <div class="subtitle">
 Tarot divinatoire — révélations et guidance
@@ -160,6 +228,7 @@ Passé • Présent • Futur
   Commencer votre tirage
 </button>
 
+<h2 class="section-title">Choisissez votre tirage</h2>
 
 </script>
 
