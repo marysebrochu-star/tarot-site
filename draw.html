@@ -136,9 +136,6 @@
 
     .card-front{
       transform:rotateY(180deg);
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
       background:#fff;
     }
 
@@ -238,7 +235,7 @@
 <body>
   <div class="container">
     <div class="symbol">☾ ✦ ☽</div>
-    <h1>Arcana Oracle</h1>
+    <h1>ARCANA ORACLE</h1>
     <div class="subtitle">Votre tirage mystique</div>
 
     <div id="cards" class="cards"></div>
@@ -252,7 +249,7 @@
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "TA_CLE_ANON_PUBLIC_ICI"
     );
 
     const POSITION_LABELS = {
@@ -304,10 +301,7 @@
 
       for (const item of cards){
         const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
-
-        if (!card){
-          continue;
-        }
+        if (!card) continue;
 
         const element = createCardElement(item);
         cardsContainer.appendChild(element);
@@ -338,11 +332,16 @@
         .from("draws")
         .select("id, summary, created_at")
         .eq("id", drawId)
-        .maybeSingle()
-;
+        .maybeSingle();
 
       if (drawError) {
         showError("Erreur tirage : " + drawError.message);
+        loading.style.display = "none";
+        return;
+      }
+
+      if (!draw) {
+        showError("Aucun tirage trouvé.");
         loading.style.display = "none";
         return;
       }
@@ -384,4 +383,3 @@
   </script>
 </body>
 </html>
-
