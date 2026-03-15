@@ -1,6 +1,146 @@
-<h1>Tarot du jour</h1>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Tarot du Jour | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tarot du jour avec Arcana Oracle. Une carte, un message mystique et une guidance pour votre journée.">
+
+<style>
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+h1{
+color:#d4af37;
+font-size:42px;
+margin-bottom:10px;
+}
+
+h2{
+color:#d4af37;
+margin-top:30px;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:30px;
+}
+
+a{
+color:#d4af37;
+text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tarot du Jour</h1>
 
 <p>
-Le tarot du jour permet de découvrir l'énergie qui influence votre journée.
-Chaque carte du tarot possède une symbolique profonde...
+Découvrez le message que les arcanes vous réservent aujourd’hui.
 </p>
+
+<h2 id="card-name">Carte du jour</h2>
+
+<img id="card-image" src="" alt="Carte du jour">
+
+<p id="card-message"></p>
+
+<button onclick="drawDailyCard()">Découvrir ma carte du jour</button>
+
+<p style="margin-top:30px;">
+<a href="/index.html">Retour à l'accueil</a>
+</p>
+
+</div>
+
+<script>
+const dailyCards = [
+  {
+    name: "Le Bateleur",
+    image: "/images/tarot/le-bateleur.webp",
+    message: "Aujourd’hui, une nouvelle opportunité s’ouvre devant vous. Osez commencer."
+  },
+  {
+    name: "La Force",
+    image: "/images/tarot/la-force.webp",
+    message: "Votre calme intérieur sera votre plus grande puissance aujourd’hui."
+  },
+  {
+    name: "La Lune",
+    image: "/images/tarot/la-lune.webp",
+    message: "Écoutez votre intuition. Tout n’a pas encore été révélé."
+  },
+  {
+    name: "Le Soleil",
+    image: "/images/tarot/le-soleil.webp",
+    message: "Une belle énergie de clarté et de joie vous accompagne aujourd’hui."
+  },
+  {
+    name: "Le Monde",
+    image: "/images/tarot/le-monde.webp",
+    message: "Vous approchez d’un accomplissement important. Gardez confiance."
+  },
+  {
+    name: "La Justice",
+    image: "/images/tarot/la-justice.webp",
+    message: "Aujourd’hui, cherchez l’équilibre et prenez vos décisions avec lucidité."
+  },
+  {
+    name: "L’Étoile",
+    image: "/images/tarot/l-etoile.webp",
+    message: "L’espoir et la douceur guident votre journée. Faites confiance à la lumière."
+  }
+];
+
+function drawDailyCard(){
+  const today = new Date().toDateString();
+  let seed = 0;
+
+  for(let i = 0; i < today.length; i++){
+    seed += today.charCodeAt(i);
+  }
+
+  const index = seed % dailyCards.length;
+  const card = dailyCards[index];
+
+  document.getElementById("card-name").textContent = card.name;
+  document.getElementById("card-image").src = card.image;
+  document.getElementById("card-image").alt = card.name;
+  document.getElementById("card-message").textContent = card.message;
+}
+
+drawDailyCard();
+</script>
+
+</body>
+</html>
