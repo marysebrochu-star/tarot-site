@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+<meta charset="UTF-8">
+
+<title>Tarot Divinatoire | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tarot divinatoire avec Arcana Oracle. Recevez une guidance spirituelle grâce aux arcanes du tarot.">
+
+<style>
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+color:#d4af37;
+font-size:42px;
+margin-bottom:15px;
+}
+
+h2{
+color:#d4af37;
+margin-top:30px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+max-width:760px;
+margin:20px auto;
+}
+
+.card-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(212,175,55,0.25);
+border-radius:16px;
+padding:25px;
+margin-top:30px;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
+}
+
+a{
+color:#d4af37;
+text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tarot Divinatoire</h1>
+
+<p>
+Le tarot divinatoire permet de recevoir une guidance symbolique
+et spirituelle. Chaque carte révèle une énergie, un message et
+une orientation pour mieux comprendre votre situation actuelle.
+</p>
+
+<div class="card-box">
+  <h2 id="card-name">Votre carte divinatoire</h2>
+
+  <img id="card-image" src="" alt="Carte divinatoire">
+
+  <p id="card-message"></p>
+
+  <button onclick="drawDivinatoryCard()">Consulter le tarot</button>
+</div>
+
+<h2>Que révèle le tarot divinatoire ?</h2>
+
+<p>
+Le tarot divinatoire n’est pas seulement une réponse immédiate :
+il met en lumière les forces qui vous entourent, vos intuitions
+et les directions possibles de votre chemin.
+</p>
+
+<p>
+En consultant régulièrement les arcanes, vous pouvez mieux
+comprendre les cycles de votre vie et recevoir un éclairage
+spirituel plus profond.
+</p>
+
+<a href="/success.html?product=small">
+<button>Faire un tirage complet</button>
+</a>
+
+<p style="margin-top:30px;">
+<a href="/index.html">Retour à l'accueil</a>
+</p>
+
+</div>
+
+<script>
+const divinatoryCards = [
+  {
+    name: "La Papesse",
+    image: "/images/tarot/la-papesse.webp",
+    message: "La Papesse vous invite à écouter votre intuition. Une vérité silencieuse cherche à se révéler."
+  },
+  {
+    name: "L’Étoile",
+    image: "/images/tarot/l-etoile.webp",
+    message: "L’Étoile annonce une guidance douce, un espoir profond et une lumière protectrice."
+  },
+  {
+    name: "La Lune",
+    image: "/images/tarot/la-lune.webp",
+    message: "La Lune vous pousse à explorer votre monde intérieur et à faire confiance à vos ressentis."
+  },
+  {
+    name: "Le Jugement",
+    image: "/images/tarot/le-jugement.webp",
+    message: "Le Jugement révèle un appel important. Une prise de conscience cherche à transformer votre route."
+  },
+  {
+    name: "Tempérance",
+    image: "/images/tarot/temperance.webp",
+    message: "Tempérance vous invite à retrouver l’équilibre, l’apaisement et l’harmonie intérieure."
+  },
+  {
+    name: "Le Monde",
+    image: "/images/tarot/le-monde.webp",
+    message: "Le Monde annonce un accomplissement et une évolution importante dans votre cheminement."
+  },
+  {
+    name: "Le Mat",
+    image: "/images/tarot/le-mat.webp",
+    message: "Le Mat vous ouvre à un nouveau départ. Le destin vous pousse à avancer avec confiance."
+  }
+];
+
+function drawDivinatoryCard(){
+  const index = Math.floor(Math.random() * divinatoryCards.length);
+  const card = divinatoryCards[index];
+
+  document.getElementById("card-name").textContent = card.name;
+  document.getElementById("card-image").src = card.image;
+  document.getElementById("card-image").alt = card.name;
+  document.getElementById("card-message").textContent = card.message;
+}
+
+drawDivinatoryCard();
+</script>
+
+</body>
+</html>
