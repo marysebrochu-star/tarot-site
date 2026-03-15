@@ -911,8 +911,11 @@ message: "Retrouve ta force intérieure avant de vouloir contrôler le monde."
   love: "En amour, il annonce un partenaire fiable, protecteur ou un lien fondé sur la stabilité.",
   work: "Dans le travail, il évoque la réussite, la maîtrise financière, la sécurité et la construction durable.",
   message: "Ce qui est bien construit devient une force de stabilité."
-}; 
-
+}
+  };
+  
+  const currentCard = cards[card];
+  
     if (cards[card]) {
       document.getElementById("card-title").textContent = cards[card].name;
       document.getElementById("card-image").src = cards[card].image;
@@ -920,7 +923,10 @@ message: "Retrouve ta force intérieure avant de vouloir contrôler le monde."
       document.getElementById("card-meaning").textContent = cards[card].meaning;
       document.getElementById("card-love").textContent = cards[card].love;
       document.getElementById("card-work").textContent = cards[card].work;
-      document.getElementById("oracle-message").textContent = cards[card].message;
+      
+      } else {
+      document.getElementById("card-title").textContent = "Carte introuvable";
+      document.getElementById("oracle-message").textContent = "Cette carte n’existe pas encore.";
       document.title = cards[card].name + " – Signification Tarot | Arcana Oracle";
       document.getElementById("cardImage").src = "/images/" + card.image;
    }
@@ -939,6 +945,7 @@ message: "Retrouve ta force intérieure avant de vouloir contrôler le monde."
 
     document.getElementById("share-whatsapp").href =
       "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + " " + pageURL);
+      
   </script>
 </body>
 </html>
