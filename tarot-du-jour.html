@@ -6,7 +6,15 @@
 
 <title>Tarot du Jour | Arcana Oracle</title>
 
-<meta name="description" content="Découvrez votre tarot du jour avec Arcana Oracle. Une carte, un message mystique et une guidance pour votre journée.">
+<meta name="description" content="Découvrez votre tarot du jour avec Arcana Oracle. Une carte quotidienne, un message mystique et une guidance pour votre journée.">
+
+<meta name="keywords" content="tarot du jour, carte du jour tarot, tarot quotidien, tirage tarot gratuit, guidance spirituelle">
+
+<meta property="og:title" content="Tarot du Jour | Arcana Oracle">
+<meta property="og:description" content="Découvrez votre carte du jour et le message des arcanes pour éclairer votre journée.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arcanaoracle.org/tarot-du-jour.html">
+<meta property="og:image" content="https://arcanaoracle.org/images/tarot/le-bateleur.webp">
 
 <style>
 body{
@@ -18,16 +26,8 @@ padding:40px;
 }
 
 .container{
-max-width:800px;
+max-width:900px;
 margin:auto;
-}
-
-img{
-max-width:300px;
-width:100%;
-border-radius:12px;
-box-shadow:0 0 20px gold;
-margin:20px 0;
 }
 
 h1{
@@ -41,17 +41,73 @@ color:#d4af37;
 margin-top:30px;
 }
 
-button{
+.intro{
+max-width:760px;
+margin:0 auto 25px auto;
+line-height:1.7;
+font-size:20px;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+.card-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(212,175,55,0.25);
+border-radius:16px;
+padding:25px;
+margin-top:25px;
+}
+
+.message{
+font-size:22px;
+line-height:1.7;
+max-width:700px;
+margin:20px auto 0 auto;
+}
+
+.seo-text{
+max-width:760px;
+margin:40px auto 0 auto;
+text-align:left;
+line-height:1.8;
+font-size:20px;
+}
+
+button, .cta-link{
 background:#d4af37;
 border:none;
 padding:15px 25px;
 font-size:18px;
 border-radius:6px;
 cursor:pointer;
+margin-top:25px;
+display:inline-block;
+text-decoration:none;
+color:black;
+font-weight:bold;
+}
+
+.share{
+margin-top:25px;
+}
+
+.share a{
+color:#d4af37;
+text-decoration:none;
+margin:0 10px;
+}
+
+.footer-link{
 margin-top:30px;
 }
 
-a{
+.footer-link a{
 color:#d4af37;
 text-decoration:none;
 }
@@ -65,19 +121,56 @@ text-decoration:none;
 
 <h1>Tarot du Jour</h1>
 
-<p>
-Découvrez le message que les arcanes vous réservent aujourd’hui.
+<p class="intro">
+Chaque journée porte une énergie particulière. Grâce au tarot du jour,
+Arcana Oracle vous aide à découvrir le message spirituel qui vous accompagne
+aujourd’hui. Cette carte peut éclairer vos émotions, vos choix et votre chemin.
 </p>
 
-<h2 id="card-name">Carte du jour</h2>
+<div class="card-box">
+  <h2 id="card-name">Carte du jour</h2>
 
-<img id="card-image" src="" alt="Carte du jour">
+  <img id="card-image" src="" alt="Carte du jour tarot">
 
-<p id="card-message"></p>
+  <p id="card-message" class="message"></p>
 
-<button onclick="drawDailyCard()">Découvrir ma carte du jour</button>
+  <button onclick="drawDailyCard()">Voir ma carte du jour</button>
 
-<p style="margin-top:30px;">
+  <div class="share">
+    <a id="share-facebook" target="_blank">Facebook</a>
+    |
+    <a id="share-twitter" target="_blank">Twitter</a>
+    |
+    <a id="share-whatsapp" target="_blank">WhatsApp</a>
+  </div>
+
+  <a href="/success.html?product=small" class="cta-link">Faire un tirage complet</a>
+</div>
+
+<div class="seo-text">
+  <h2>Pourquoi consulter le tarot du jour ?</h2>
+
+  <p>
+  Le tarot du jour permet de recevoir une guidance simple et immédiate.
+  Chaque carte possède une énergie particulière qui peut révéler un conseil,
+  une mise en lumière ou une direction à suivre dans votre vie personnelle,
+  amoureuse ou professionnelle.
+  </p>
+
+  <p>
+  Beaucoup de personnes consultent leur carte quotidienne pour mieux comprendre
+  leur état intérieur, prendre du recul ou commencer la journée avec plus
+  de clarté. Le tarot quotidien est une manière douce d’entrer en contact
+  avec les messages des arcanes.
+  </p>
+
+  <p>
+  Si vous souhaitez aller plus loin, vous pouvez ensuite réaliser un tirage
+  complet pour explorer votre passé, votre présent et votre futur.
+  </p>
+</div>
+
+<p class="footer-link">
 <a href="/index.html">Retour à l'accueil</a>
 </p>
 
@@ -88,37 +181,37 @@ const dailyCards = [
   {
     name: "Le Bateleur",
     image: "/images/tarot/le-bateleur.webp",
-    message: "Aujourd’hui, une nouvelle opportunité s’ouvre devant vous. Osez commencer."
+    message: "Aujourd’hui, une nouvelle opportunité se présente à vous. Osez commencer, même si tout n’est pas encore parfaitement en place."
   },
   {
     name: "La Force",
     image: "/images/tarot/la-force.webp",
-    message: "Votre calme intérieur sera votre plus grande puissance aujourd’hui."
+    message: "Votre plus grande puissance aujourd’hui sera votre calme intérieur. La patience et la maîtrise vous ouvriront la bonne voie."
   },
   {
     name: "La Lune",
     image: "/images/tarot/la-lune.webp",
-    message: "Écoutez votre intuition. Tout n’a pas encore été révélé."
+    message: "Votre intuition est très active aujourd’hui. Prenez le temps d’écouter vos ressentis avant de prendre une décision."
   },
   {
     name: "Le Soleil",
     image: "/images/tarot/le-soleil.webp",
-    message: "Une belle énergie de clarté et de joie vous accompagne aujourd’hui."
+    message: "Une énergie lumineuse vous accompagne aujourd’hui. La clarté, la joie et la confiance peuvent transformer votre journée."
   },
   {
     name: "Le Monde",
     image: "/images/tarot/le-monde.webp",
-    message: "Vous approchez d’un accomplissement important. Gardez confiance."
+    message: "Vous approchez d’un accomplissement important. Ce que vous avez construit prend une forme plus complète et harmonieuse."
   },
   {
     name: "La Justice",
     image: "/images/tarot/la-justice.webp",
-    message: "Aujourd’hui, cherchez l’équilibre et prenez vos décisions avec lucidité."
+    message: "Aujourd’hui, la vérité et l’équilibre seront essentiels. Prenez vos décisions avec lucidité et honnêteté."
   },
   {
     name: "L’Étoile",
     image: "/images/tarot/l-etoile.webp",
-    message: "L’espoir et la douceur guident votre journée. Faites confiance à la lumière."
+    message: "L’espoir, la douceur et la confiance vous accompagnent aujourd’hui. Laissez la lumière guider vos choix."
   }
 ];
 
@@ -137,6 +230,18 @@ function drawDailyCard(){
   document.getElementById("card-image").src = card.image;
   document.getElementById("card-image").alt = card.name;
   document.getElementById("card-message").textContent = card.message;
+
+  const pageURL = window.location.href;
+  const text = "Découvrez votre tarot du jour sur Arcana Oracle ✨";
+
+  document.getElementById("share-facebook").href =
+    "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
+
+  document.getElementById("share-twitter").href =
+    "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(pageURL);
+
+  document.getElementById("share-whatsapp").href =
+    "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + " " + pageURL);
 }
 
 drawDailyCard();
