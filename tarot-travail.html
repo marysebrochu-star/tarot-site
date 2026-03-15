@@ -1,1 +1,191 @@
-o
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Tarot Travail | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tarot travail avec Arcana Oracle. Recevez une guidance sur votre carrière, vos projets et votre évolution professionnelle.">
+
+<style>
+
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+color:#d4af37;
+font-size:42px;
+}
+
+h2{
+color:#d4af37;
+margin-top:30px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+max-width:760px;
+margin:20px auto;
+}
+
+.card-box{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(212,175,55,0.3);
+border-radius:16px;
+padding:25px;
+margin-top:30px;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
+}
+
+a{
+color:#d4af37;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tarot Travail</h1>
+
+<p>
+Le tarot travail permet d'explorer les énergies liées à votre
+carrière, vos projets professionnels et vos opportunités futures.
+Cette carte peut révéler une dynamique importante dans votre
+évolution professionnelle.
+</p>
+
+<div class="card-box">
+
+<h2 id="card-name">Votre carte professionnelle</h2>
+
+<img id="card-image" src="" alt="Carte tarot travail">
+
+<p id="card-message"></p>
+
+<button onclick="drawWorkCard()">Découvrir ma carte travail</button>
+
+</div>
+
+<h2>Que révèle le tarot travail ?</h2>
+
+<p>
+Les arcanes du tarot peuvent éclairer les situations liées
+au travail, aux projets, aux décisions professionnelles
+ou aux changements de direction.
+</p>
+
+<p>
+Cette guidance permet de mieux comprendre les opportunités,
+les obstacles et les évolutions possibles dans votre carrière.
+</p>
+
+<a href="/success.html?product=small">
+<button>Faire un tirage complet</button>
+</a>
+
+<p style="margin-top:30px;">
+<a href="/index.html">Retour à l'accueil</a>
+</p>
+
+</div>
+
+<script>
+
+const workCards = [
+
+{
+name:"Le Chariot",
+image:"/images/tarot/le-chariot.webp",
+message:"Le Chariot annonce une progression rapide dans votre carrière. Votre détermination peut vous mener vers une réussite importante."
+},
+
+{
+name:"La Roue de Fortune",
+image:"/images/tarot/la-roue-de-fortune.webp",
+message:"Un changement professionnel est possible. Une opportunité inattendue peut transformer votre situation."
+},
+
+{
+name:"L'Empereur",
+image:"/images/tarot/l-empereur.webp",
+message:"L’Empereur symbolise la stabilité et l’autorité. Une position solide ou une responsabilité importante peut apparaître."
+},
+
+{
+name:"Tempérance",
+image:"/images/tarot/temperance.webp",
+message:"Tempérance invite à la patience et à l’équilibre. Une évolution progressive est en cours dans votre travail."
+},
+
+{
+name:"Le Soleil",
+image:"/images/tarot/le-soleil.webp",
+message:"Le Soleil annonce succès et reconnaissance professionnelle. Votre travail peut être valorisé."
+},
+
+{
+name:"La Force",
+image:"/images/tarot/la-force.webp",
+message:"La Force indique que votre persévérance et votre calme intérieur seront essentiels pour avancer."
+},
+
+{
+name:"Le Monde",
+image:"/images/tarot/le-monde.webp",
+message:"Le Monde révèle un accomplissement professionnel important ou l'aboutissement d'un projet."
+}
+
+];
+
+function drawWorkCard(){
+
+const index = Math.floor(Math.random()*workCards.length);
+const card = workCards[index];
+
+document.getElementById("card-name").textContent = card.name;
+document.getElementById("card-image").src = card.image;
+document.getElementById("card-image").alt = card.name;
+document.getElementById("card-message").textContent = card.message;
+
+}
+
+drawWorkCard();
+
+</script>
+
+</body>
+</html>
