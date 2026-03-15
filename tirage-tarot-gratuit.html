@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+<meta charset="UTF-8">
+
+<title>Tirage Tarot Gratuit | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tirage tarot gratuit en ligne avec Arcana Oracle. Recevez une guidance immédiate et explorez le message des arcanes.">
+
+<style>
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+color:#d4af37;
+font-size:42px;
+margin-bottom:15px;
+}
+
+h2{
+color:#d4af37;
+margin-top:30px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+max-width:760px;
+margin:20px auto;
+}
+
+.card-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(212,175,55,0.25);
+border-radius:16px;
+padding:25px;
+margin-top:30px;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
+}
+
+a{
+color:#d4af37;
+text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tirage Tarot Gratuit</h1>
+
+<p>
+Bienvenue dans votre espace de guidance. Ce tirage tarot gratuit
+vous permet de recevoir un premier message des arcanes et d’éclairer
+votre énergie du moment.
+</p>
+
+<div class="card-box">
+  <h2 id="card-name">Votre carte</h2>
+
+  <img id="card-image" src="" alt="Carte de tarot">
+
+  <p id="card-message"></p>
+
+  <button onclick="drawFreeCard()">Découvrir ma carte</button>
+</div>
+
+<h2>Tirage tarot gratuit en ligne</h2>
+
+<p>
+Ce tirage tarot gratuit vous permet de recevoir une première guidance
+des arcanes. Les cartes du tarot révèlent souvent des messages symboliques
+sur votre situation actuelle, vos émotions et votre évolution possible.
+</p>
+
+<p>
+Si vous souhaitez une interprétation plus approfondie, vous pouvez ensuite
+réaliser un tirage complet pour explorer votre passé, votre présent
+et votre futur.
+</p>
+
+<a href="/success.html?product=small">
+<button>Découvrir mon tirage complet</button>
+</a>
+
+<p style="margin-top:30px;">
+<a href="/index.html">Retour à l'accueil</a>
+</p>
+
+</div>
+
+<script>
+const freeCards = [
+  {
+    name: "Le Bateleur",
+    image: "/images/tarot/le-bateleur.webp",
+    message: "Le Bateleur vous invite à saisir une nouvelle opportunité et à faire confiance à votre potentiel."
+  },
+  {
+    name: "La Force",
+    image: "/images/tarot/la-force.webp",
+    message: "La Force vous rappelle que le calme, la patience et la maîtrise intérieure sont vos meilleurs alliés."
+  },
+  {
+    name: "La Lune",
+    image: "/images/tarot/la-lune.webp",
+    message: "La Lune vous conseille d’écouter votre intuition et de prendre le temps de voir au-delà des apparences."
+  },
+  {
+    name: "Le Soleil",
+    image: "/images/tarot/le-soleil.webp",
+    message: "Le Soleil annonce une période lumineuse, remplie de clarté, de joie et d’énergie positive."
+  },
+  {
+    name: "Le Monde",
+    image: "/images/tarot/le-monde.webp",
+    message: "Le Monde indique un accomplissement important et une belle harmonie dans votre cheminement."
+  },
+  {
+    name: "La Justice",
+    image: "/images/tarot/la-justice.webp",
+    message: "La Justice vous invite à rechercher l’équilibre et à prendre une décision avec lucidité."
+  },
+  {
+    name: "L’Étoile",
+    image: "/images/tarot/l-etoile.webp",
+    message: "L’Étoile vous apporte espoir, douceur et confiance en l’avenir."
+  }
+];
+
+function drawFreeCard(){
+  const index = Math.floor(Math.random() * freeCards.length);
+  const card = freeCards[index];
+
+  document.getElementById("card-name").textContent = card.name;
+  document.getElementById("card-image").src = card.image;
+  document.getElementById("card-image").alt = card.name;
+  document.getElementById("card-message").textContent = card.message;
+}
+
+drawFreeCard();
+</script>
+
+</body>
+</html>
