@@ -1,1 +1,190 @@
-o
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Tarot Argent | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tarot argent avec Arcana Oracle. Recevez une guidance sur vos finances, vos opportunités et votre avenir financier.">
+
+<style>
+
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+color:#d4af37;
+font-size:42px;
+}
+
+h2{
+color:#d4af37;
+margin-top:30px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+max-width:760px;
+margin:20px auto;
+}
+
+.card-box{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(212,175,55,0.3);
+border-radius:16px;
+padding:25px;
+margin-top:30px;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
+}
+
+a{
+color:#d4af37;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tarot Argent</h1>
+
+<p>
+Le tarot argent permet d'explorer les énergies liées à vos finances,
+vos investissements et vos opportunités matérielles.
+Cette carte peut révéler une dynamique importante dans votre situation financière.
+</p>
+
+<div class="card-box">
+
+<h2 id="card-name">Votre carte financière</h2>
+
+<img id="card-image" src="" alt="Carte tarot argent">
+
+<p id="card-message"></p>
+
+<button onclick="drawMoneyCard()">Découvrir ma carte argent</button>
+
+</div>
+
+<h2>Que révèle le tarot argent ?</h2>
+
+<p>
+Les arcanes peuvent éclairer les périodes de prospérité,
+les décisions financières importantes et les opportunités
+qui peuvent améliorer votre stabilité matérielle.
+</p>
+
+<p>
+Cette guidance permet de mieux comprendre les cycles financiers
+et les possibilités d'évolution dans votre situation économique.
+</p>
+
+<a href="/success.html?product=small">
+<button>Faire un tirage complet</button>
+</a>
+
+<p style="margin-top:30px;">
+<a href="/index.html">Retour à l'accueil</a>
+</p>
+
+</div>
+
+<script>
+
+const moneyCards = [
+
+{
+name:"La Roue de Fortune",
+image:"/images/tarot/la-roue-de-fortune.webp",
+message:"La Roue de Fortune annonce un changement financier possible. Une nouvelle opportunité peut transformer votre situation."
+},
+
+{
+name:"Le Soleil",
+image:"/images/tarot/le-soleil.webp",
+message:"Le Soleil annonce succès et prospérité. Une période favorable pour vos finances peut apparaître."
+},
+
+{
+name:"Le Monde",
+image:"/images/tarot/le-monde.webp",
+message:"Le Monde symbolise un accomplissement matériel ou la réussite d'un projet financier."
+},
+
+{
+name:"L'Empereur",
+image:"/images/tarot/l-empereur.webp",
+message:"L’Empereur représente stabilité et sécurité financière. Une base solide peut se construire."
+},
+
+{
+name:"Tempérance",
+image:"/images/tarot/temperance.webp",
+message:"Tempérance invite à la prudence et à l'équilibre dans la gestion de vos finances."
+},
+
+{
+name:"La Justice",
+image:"/images/tarot/la-justice.webp",
+message:"La Justice indique qu'une décision financière importante doit être prise avec lucidité."
+},
+
+{
+name:"Le Bateleur",
+image:"/images/tarot/le-bateleur.webp",
+message:"Le Bateleur annonce une nouvelle opportunité financière ou un projet prometteur."
+}
+
+];
+
+function drawMoneyCard(){
+
+const index = Math.floor(Math.random()*moneyCards.length);
+const card = moneyCards[index];
+
+document.getElementById("card-name").textContent = card.name;
+document.getElementById("card-image").src = card.image;
+document.getElementById("card-image").alt = card.name;
+document.getElementById("card-message").textContent = card.message;
+
+}
+
+drawMoneyCard();
+
+</script>
+
+</body>
+</html>
