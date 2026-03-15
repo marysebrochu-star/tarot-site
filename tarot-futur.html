@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+<meta charset="UTF-8">
+
+<title>Tarot Futur | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tarot du futur avec Arcana Oracle. Recevez une guidance sur les énergies à venir et votre évolution possible.">
+
+<style>
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+color:#d4af37;
+font-size:42px;
+margin-bottom:15px;
+}
+
+h2{
+color:#d4af37;
+margin-top:30px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+max-width:760px;
+margin:20px auto;
+}
+
+.card-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(212,175,55,0.25);
+border-radius:16px;
+padding:25px;
+margin-top:30px;
+}
+
+img{
+max-width:300px;
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+margin:20px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
+}
+
+a{
+color:#d4af37;
+text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tarot du Futur</h1>
+
+<p>
+Le tarot du futur vous aide à explorer les énergies qui se dessinent
+devant vous. Cette carte met en lumière une tendance, une possibilité
+ou une évolution importante à venir.
+</p>
+
+<div class="card-box">
+  <h2 id="card-name">Votre carte du futur</h2>
+
+  <img id="card-image" src="" alt="Carte du futur">
+
+  <p id="card-message"></p>
+
+  <button onclick="drawFutureCard()">Découvrir ma carte du futur</button>
+</div>
+
+<h2>Que révèle le tarot du futur ?</h2>
+
+<p>
+Le tarot du futur ne prédit pas un destin figé. Il révèle surtout
+des énergies, des possibilités et des dynamiques qui peuvent se manifester
+si vous continuez sur votre chemin actuel.
+</p>
+
+<p>
+Cette guidance permet de mieux comprendre votre évolution et de préparer
+les choix importants à venir.
+</p>
+
+<a href="/success.html?product=small">
+<button>Faire un tirage complet</button>
+</a>
+
+<p style="margin-top:30px;">
+<a href="/index.html">Retour à l'accueil</a>
+</p>
+
+</div>
+
+<script>
+const futureCards = [
+  {
+    name: "La Roue de Fortune",
+    image: "/images/tarot/la-roue-de-fortune.webp",
+    message: "Le futur annonce un changement important. Une nouvelle phase de votre vie est en préparation."
+  },
+  {
+    name: "Le Monde",
+    image: "/images/tarot/le-monde.webp",
+    message: "Un accomplissement approche. Le futur montre une évolution positive et une forme d’aboutissement."
+  },
+  {
+    name: "Le Soleil",
+    image: "/images/tarot/le-soleil.webp",
+    message: "Le futur s’éclaire avec une énergie de joie, de clarté et de réussite."
+  },
+  {
+    name: "Le Jugement",
+    image: "/images/tarot/le-jugement.webp",
+    message: "Un réveil important se prépare. Le futur vous pousse à répondre à un appel intérieur."
+  },
+  {
+    name: "La Force",
+    image: "/images/tarot/la-force.webp",
+    message: "Le futur demandera patience, maîtrise et courage. Votre stabilité intérieure sera précieuse."
+  },
+  {
+    name: "L’Étoile",
+    image: "/images/tarot/l-etoile.webp",
+    message: "Le futur porte une énergie d’espoir et de guérison. Une période plus douce s’approche."
+  },
+  {
+    name: "Le Chariot",
+    image: "/images/tarot/le-chariot.webp",
+    message: "Le futur annonce une avancée rapide et une progression vers vos objectifs."
+  }
+];
+
+function drawFutureCard(){
+  const index = Math.floor(Math.random() * futureCards.length);
+  const card = futureCards[index];
+
+  document.getElementById("card-name").textContent = card.name;
+  document.getElementById("card-image").src = card.image;
+  document.getElementById("card-image").alt = card.name;
+  document.getElementById("card-message").textContent = card.message;
+}
+
+drawFutureCard();
+</script>
+
+</body>
+</html>
