@@ -906,6 +906,7 @@
       document.getElementById("card-work").textContent = cards[card].work;
       document.getElementById("oracle-message").textContent = cards[card].message;
       document.title = cards[card].name + " – Signification Tarot | Arcana Oracle";
+      document.getElementById("cardImage").src = "/images/" + card.image;
     }
 
     const pageURL = window.location.href;
