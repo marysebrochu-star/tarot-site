@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+<meta charset="UTF-8">
+
+<title>Tirage Tarot Passé Présent Futur | Arcana Oracle</title>
+
+<meta name="description" content="Découvrez votre tirage tarot passé présent futur avec Arcana Oracle. Trois cartes pour éclairer votre situation.">
+
+<style>
+
+body{
+background:#0b0f1a;
+color:white;
+font-family:serif;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+h1{
+color:#d4af37;
+font-size:40px;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.card{
+width:220px;
+}
+
+.card img{
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px gold;
+}
+
+.card-title{
+color:#d4af37;
+font-size:22px;
+margin-top:10px;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tirage Passé Présent Futur</h1>
+
+<p>
+Ce tirage tarot révèle l'influence de votre passé,
+l'énergie du présent et la direction possible de votre futur.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-title">Passé</div>
+<img id="past-image">
+<div id="past-name"></div>
+</div>
+
+<div class="card">
+<div class="card-title">Présent</div>
+<img id="present-image">
+<div id="present-name"></div>
+</div>
+
+<div class="card">
+<div class="card-title">Futur</div>
+<img id="future-image">
+<div id="future-name"></div>
+</div>
+
+</div>
+
+<button onclick="drawCards()">Tirer les cartes</button>
+
+<br><br>
+
+<a href="/success.html?product=small">
+<button>Faire un tirage complet</button>
+</a>
+
+</div>
+
+<script>
+
+const tarotCards = [
+
+{ name:"Le Bateleur", image:"/images/tarot/le-bateleur.webp"},
+{ name:"La Papesse", image:"/images/tarot/la-papesse.webp"},
+{ name:"L'Impératrice", image:"/images/tarot/l-imperatrice.webp"},
+{ name:"L'Empereur", image:"/images/tarot/l-empereur.webp"},
+{ name:"Le Pape", image:"/images/tarot/le-pape.webp"},
+{ name:"L'Amoureux", image:"/images/tarot/l-amoureux.webp"},
+{ name:"Le Chariot", image:"/images/tarot/le-chariot.webp"},
+{ name:"La Justice", image:"/images/tarot/la-justice.webp"},
+{ name:"L'Hermite", image:"/images/tarot/l-hermite.webp"},
+{ name:"La Roue de Fortune", image:"/images/tarot/la-roue-de-fortune.webp"},
+{ name:"La Force", image:"/images/tarot/la-force.webp"},
+{ name:"Le Pendu", image:"/images/tarot/le-pendu.webp"},
+{ name:"La Mort", image:"/images/tarot/la-mort.webp"},
+{ name:"Tempérance", image:"/images/tarot/temperance.webp"},
+{ name:"Le Diable", image:"/images/tarot/le-diable.webp"},
+{ name:"La Maison Dieu", image:"/images/tarot/la-maison-dieu.webp"},
+{ name:"L'Étoile", image:"/images/tarot/l-etoile.webp"},
+{ name:"La Lune", image:"/images/tarot/la-lune.webp"},
+{ name:"Le Soleil", image:"/images/tarot/le-soleil.webp"},
+{ name:"Le Jugement", image:"/images/tarot/le-jugement.webp"},
+{ name:"Le Monde", image:"/images/tarot/le-monde.webp"},
+{ name:"Le Mat", image:"/images/tarot/le-mat.webp"}
+
+];
+
+function randomCard(){
+return tarotCards[Math.floor(Math.random()*tarotCards.length)];
+}
+
+function drawCards(){
+
+let past=randomCard();
+let present=randomCard();
+let future=randomCard();
+
+document.getElementById("past-image").src=past.image;
+document.getElementById("past-name").textContent=past.name;
+
+document.getElementById("present-image").src=present.image;
+document.getElementById("present-name").textContent=present.name;
+
+document.getElementById("future-image").src=future.image;
+document.getElementById("future-name").textContent=future.name;
+
+}
+
+drawCards();
+
+</script>
+
+</body>
+</html>
