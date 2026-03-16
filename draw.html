@@ -418,6 +418,21 @@ animation:shuffleRight 1.2s ease-in-out infinite;
       error.textContent = message;
     }
 
+function hideShuffleAndShowCards(){
+  const shuffleZone = document.getElementById("shuffle-zone");
+  if(shuffleZone){
+    shuffleZone.style.display = "none";
+  }
+
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, index * 500);
+  });
+}
+
     function createCardElement(item){
       const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
       const slot = document.createElement("div");
