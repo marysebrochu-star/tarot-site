@@ -304,6 +304,75 @@ color:#ddd;
       .card-3d{width:220px;height:360px}
       .summary{font-size:21px;padding:22px}
     }
+    .shuffle-zone{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:18px;
+margin:30px 0;
+min-height:320px;
+}
+
+.shuffle-card{
+width:160px;
+height:260px;
+border-radius:18px;
+border:1px solid rgba(212,175,55,0.28);
+background:
+radial-gradient(circle at center, rgba(212,175,55,0.18), transparent 45%),
+linear-gradient(180deg, #121521 0%, #0d1018 100%);
+box-shadow:0 0 24px rgba(212,175,55,0.12);
+position:relative;
+transform-origin:center center;
+}
+
+.shuffle-card::before{
+content:"☾ ✦ ☽";
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#d4af37;
+font-size:32px;
+letter-spacing:4px;
+}
+
+.shuffle-1{
+animation:shuffleLeft 1.2s ease-in-out infinite;
+}
+
+.shuffle-2{
+animation:shuffleCenter 1.2s ease-in-out infinite;
+}
+
+.shuffle-3{
+animation:shuffleRight 1.2s ease-in-out infinite;
+}
+
+@keyframes shuffleLeft{
+0%{transform:translateX(0) rotate(-6deg);}
+25%{transform:translateX(18px) rotate(-10deg);}
+50%{transform:translateX(6px) rotate(-3deg);}
+75%{transform:translateX(22px) rotate(-8deg);}
+100%{transform:translateX(0) rotate(-6deg);}
+}
+
+@keyframes shuffleCenter{
+0%{transform:translateY(0) rotate(0deg);}
+25%{transform:translateY(-10px) rotate(2deg);}
+50%{transform:translateY(0) rotate(0deg);}
+75%{transform:translateY(-8px) rotate(-2deg);}
+100%{transform:translateY(0) rotate(0deg);}
+}
+
+@keyframes shuffleRight{
+0%{transform:translateX(0) rotate(6deg);}
+25%{transform:translateX(-18px) rotate(10deg);}
+50%{transform:translateX(-6px) rotate(3deg);}
+75%{transform:translateX(-22px) rotate(8deg);}
+100%{transform:translateX(0) rotate(6deg);}
+}
   </style>
 </head>
 <body>
@@ -319,6 +388,7 @@ color:#ddd;
 </div>
 
 <div id="cards" class="cards"></div>
+
 <div id="loading" class="loading">Les cartes se mélangent…</div>
     <div id="summary" class="summary"></div>
     <div id="error" class="error" style="display:none;"></div>
