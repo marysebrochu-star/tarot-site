@@ -113,7 +113,16 @@ button:hover{
 background:#f0d36b;
 transform:scale(1.05);
 }
+<div class="newsletter-box">
+  <h2>Recevez vos messages mystiques par courriel</h2>
+  <p>Inscrivez-vous pour recevoir les nouveautés et les guidances d’Arcana Oracle.</p>
 
+  <form action="https://formsubmit.co/TONEMAIL@GMAIL.COM" method="POST">
+    <input type="email" name="email" placeholder="Votre courriel" required>
+    <button type="submit">Je m’inscris</button>
+  </form>
+</div>
+}
 tarot-bateleur{
 display:block;
 margin-left:auto;
@@ -142,7 +151,45 @@ font-size:36px;
 margin-top:60px;
 margin-bottom:40px;
 }
- 
+ .newsletter-box{
+max-width:700px;
+margin:40px auto;
+padding:30px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(212,175,55,0.3);
+border-radius:16px;
+text-align:center;
+}
+
+.newsletter-box h2{
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.newsletter-box p{
+font-size:18px;
+line-height:1.6;
+}
+
+.newsletter-box input{
+width:70%;
+max-width:420px;
+padding:14px;
+border-radius:8px;
+border:none;
+margin-top:15px;
+font-size:16px;
+}
+
+.newsletter-box button{
+background:#d4af37;
+border:none;
+padding:14px 22px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+margin-top:15px;
+}
   
 </style>
 </head>
