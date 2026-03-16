@@ -516,6 +516,9 @@ div.innerHTML = `
         loading.style.display = "none";
         return;
       }
+      setTimeout(() => {
+  hideShuffleAndShowCards();
+}, 2500);
 
       const { data: draw, error: drawError } = await supabase
         .from("draws")
