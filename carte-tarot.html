@@ -1062,25 +1062,39 @@ message:"La réussite demande parfois un dernier effort."
 }
   };
   
-  const currentCard = cards[card];
-  
-    if (cards[card]) {
-      document.getElementById("card-title").textContent = cards[card].name;
-      document.getElementById("card-image").src = cards[card].image;
-      document.getElementById("card-image").alt = cards[card].name;
-      document.getElementById("card-meaning").textContent = cards[card].meaning;
-      document.getElementById("card-love").textContent = cards[card].love;
-      document.getElementById("card-work").textContent = cards[card].work;
-      
+     const currentCard = cards[card];
+
+    if (currentCard) {
+      document.getElementById("card-title").textContent = currentCard.name;
+      document.getElementById("card-image").src = currentCard.image;
+      document.getElementById("card-image").alt = currentCard.name;
+
+      if (reversed && currentCard.reversed) {
+        document.getElementById("card-image").classList.add("reversed");
+        document.getElementById("card-orientation").textContent = "Carte inversée";
+        document.getElementById("card-meaning").textContent = currentCard.reversed.meaning;
+        document.getElementById("card-love").textContent = currentCard.reversed.love;
+        document.getElementById("card-work").textContent = currentCard.reversed.work;
+        document.getElementById("oracle-message").textContent = currentCard.reversed.message;
+        document.title = currentCard.name + " inversée – Signification Tarot | Arcana Oracle";
       } else {
+        document.getElementById("card-orientation").textContent = "Carte droite";
+        document.getElementById("card-meaning").textContent = currentCard.meaning;
+        document.getElementById("card-love").textContent = currentCard.love;
+        document.getElementById("card-work").textContent = currentCard.work;
+        document.getElementById("oracle-message").textContent = currentCard.message;
+        document.title = currentCard.name + " – Signification Tarot | Arcana Oracle";
+      }
+    } else {
       document.getElementById("card-title").textContent = "Carte introuvable";
       document.getElementById("oracle-message").textContent = "Cette carte n’existe pas encore.";
-      document.title = cards[card].name + " – Signification Tarot | Arcana Oracle";
-      document.getElementById("cardImage").src = "/images/" + card.image;
-   }
-   if(reversed){
-   document.getElementById("card-meaning").textContent = cards[card].reversed;
-  }
+      document.getElementById("card-meaning").textContent = "Vérifiez le nom utilisé dans l’URL.";
+      document.getElementById("card-love").textContent = "";
+      document.getElementById("card-work").textContent = "";
+      document.getElementById("card-orientation").textContent = "";
+      document.getElementById("card-image").style.display = "none";
+      document.title = "Carte introuvable – Arcana Oracle";
+    }
 
     const pageURL = window.location.href;
     const text = "Découvrez cette carte du tarot sur Arcana Oracle ✨";
@@ -1093,7 +1107,6 @@ message:"La réussite demande parfois un dernier effort."
 
     document.getElementById("share-whatsapp").href =
       "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + " " + pageURL);
-      
   </script>
 </body>
 </html>
