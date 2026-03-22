@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Arcana Oracle – Carte du Tarot</title>
   <meta name="description" content="Découvrez la signification complète d'une carte du tarot : amour, travail, avenir et message spirituel avec Arcana Oracle.">
   <meta name="keywords" content="signification carte tarot, tarot amour, tarot travail, tarot avenir, arcana oracle">
   <link rel="canonical" href="https://arcanaoracle.org/carte-tarot.html">
 
-  <div class="tarot-card-image">
-  <img id="cardImage" src="" alt="Carte de tarot">
-</div>
-  
   <style>
     body{
       margin:0;
@@ -38,22 +34,27 @@
       font-size:42px;
       margin-bottom:20px;
     }
-    
- .tarot-card-image {
-text-align:center;
-margin:30px 0;
-}
 
-.tarot-card-image img{
-width:220px;
-border-radius:10px;
-box-shadow:0 0 20px rgba(255,215,0,0.4);
-}
+    .card{
+      margin:30px 0;
+    }
+
     .card img{
       width:280px;
       max-width:90%;
       border-radius:14px;
       box-shadow:0 0 30px rgba(212,175,55,0.35);
+      transition:transform 0.6s ease;
+    }
+
+    .reversed{
+      transform:rotate(180deg);
+    }
+
+    .orientation{
+      color:#d4af37;
+      font-size:18px;
+      margin-top:14px;
     }
 
     .text{
@@ -112,11 +113,9 @@ box-shadow:0 0 20px rgba(255,215,0,0.4);
       text-decoration:none;
       font-weight:bold;
     }
-    .reversed {
-    transform: rotate(180deg);
-    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="symbol">☾ ✦ ☽</div>
@@ -124,7 +123,8 @@ box-shadow:0 0 20px rgba(255,215,0,0.4);
     <h1 id="card-title">Carte du Tarot</h1>
 
     <div class="card">
-      <img id="card-image" src="" alt="">
+      <img id="card-image" src="" alt="Carte de tarot">
+      <div id="card-orientation" class="orientation"></div>
     </div>
 
     <div class="mystic-message">
@@ -168,6 +168,7 @@ box-shadow:0 0 20px rgba(255,215,0,0.4);
     const reversed = Math.random() < 0.5;
 
     const cards = {
+      
       "mat": {
         name: "Le Mat",
         image: "/images/tarot/le-mat.webp",
