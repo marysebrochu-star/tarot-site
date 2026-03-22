@@ -168,67 +168,65 @@
     const reversed = Math.random() < 0.5;
 
     const cards = {
-      
       "mat": {
-        name: "Le Mat",
-        image: "/images/tarot/le-mat.webp",
-        meaning: "Le Mat symbolise le départ, l’élan de liberté, l’appel de l’inconnu et l’ouverture à une nouvelle aventure.",
-        love: "En amour, Le Mat annonce un besoin de liberté, une rencontre inattendue ou une relation qui échappe aux cadres habituels.",
-        work: "Au travail, Le Mat invite à oser un nouveau chemin, à quitter une situation figée ou à suivre une inspiration profonde.",
-        message: "Le destin vous souffle d’avancer sans tout contrôler. Un nouveau chemin s’ouvre."
+    name: "Le Mat",
+    image: "/images/tarot/le-mat.webp",
+    meaning: "Le Mat symbolise le départ, l’élan de liberté, l’appel de l’inconnu et l’ouverture à une nouvelle aventure.",
+    love: "En amour, Le Mat annonce un besoin de liberté, une rencontre inattendue ou une relation qui échappe aux cadres habituels.",
+    work: "Au travail, Le Mat invite à oser un nouveau chemin, à quitter une situation figée ou à suivre une inspiration profonde.",
+    message: "Le destin vous souffle d’avancer sans tout contrôler. Un nouveau chemin s’ouvre.",
+    reversed: {
+      meaning: "Le Mat inversé peut indiquer une hésitation, une imprudence ou un manque de direction.",
+      love: "En amour, il peut révéler une relation instable ou une difficulté à s'engager.",
+      work: "Dans le travail, il suggère un manque de préparation ou un projet mal défini.",
+      message: "Avant de partir vers l'inconnu, assurez-vous de savoir où vous allez."
+    }
+  },
+
+  "bateleur": {
+    name: "Le Bateleur",
+    image: "/images/tarot/le-bateleur.webp",
+    meaning: "Le Bateleur représente le commencement, l’initiative, la créativité et le pouvoir d’agir maintenant.",
+    love: "En amour, Le Bateleur parle d’un nouveau départ, d’un flirt, d’une ouverture sincère ou d’une dynamique fraîche dans le couple.",
+    work: "Dans le travail, il annonce une opportunité, un projet naissant, une idée à concrétiser ou un talent à mettre en avant.",
+    message: "Le moment est venu de commencer. Vous avez déjà les outils nécessaires.",
+    reversed: {
+      meaning: "Le Bateleur inversé peut révéler une manipulation ou un manque de confiance en soi.",
+      love: "En amour, il peut indiquer des illusions ou un manque de sincérité.",
+      work: "Au travail, il peut annoncer une mauvaise organisation ou un projet fragile.",
+      message: "Clarifiez vos intentions avant d'agir."
+    }
+  },
+
+  "papesse": {
+    name: "La Papesse",
+    image: "/images/tarot/la-papesse.webp",
+    meaning: "La Papesse symbolise l’intuition, la sagesse intérieure, le secret, l’observation et la patience.",
+    love: "En amour, elle parle de retenue, de profondeur, de sentiments cachés ou d’un lien qui mûrit en silence.",
+    work: "Au travail, elle invite à préparer, étudier, observer et ne pas agir trop vite.",
+    message: "Écoutez votre voix intérieure. Ce qui est silencieux est souvent ce qui est vrai.",
+    reversed: {
+      meaning: "La Papesse inversée peut indiquer un manque d'écoute intérieure ou des secrets cachés.",
+      love: "En amour, elle peut révéler des émotions refoulées ou un manque de communication.",
+      work: "Dans le travail, elle suggère une information importante encore dissimulée.",
+      message: "Prenez le temps d'écouter votre intuition."
+    }
+  },
+
+  "imperatrice": {
+    name: "L’Impératrice",
+    image: "/images/tarot/l-imperatrice.webp",
+    meaning: "L’Impératrice évoque la création, l’abondance, l’intelligence, la féminité et l’expansion.",
+    love: "En amour, elle annonce une relation florissante, des sentiments exprimés, de la sensualité et de la joie.",
+    work: "Dans le travail, elle favorise les idées fertiles, les projets qui prennent forme et la communication.",
+    message: "Laissez grandir ce qui demande à naître. Votre énergie crée déjà le futur.",
+    reversed: {
+      meaning: "L’Impératrice inversée peut symboliser un manque de créativité ou un déséquilibre émotionnel.",
+      love: "En amour, elle peut signaler des tensions ou une dépendance affective.",
+      work: "Au travail, elle peut indiquer un blocage créatif.",
+      message  
+
         
-        reversed:{
-meaning:"Le Mat inversé peut indiquer une hésitation, une imprudence ou un manque de direction.",
-love:"En amour, il peut révéler une relation instable ou une difficulté à s'engager.",
-work:"Dans le travail, il suggère un manque de préparation ou un projet mal défini.",
-message:"Avant de partir vers l'inconnu, assurez-vous de savoir où vous allez."
-}
-      },
-      "bateleur": {
-        name: "Le Bateleur",
-        image: "/images/tarot/le-bateleur.webp",
-        meaning: "Le Bateleur représente le commencement, l’initiative, la créativité et le pouvoir d’agir maintenant.",
-        love: "En amour, Le Bateleur parle d’un nouveau départ, d’un flirt, d’une ouverture sincère ou d’une dynamique fraîche dans le couple.",
-        work: "Dans le travail, il annonce une opportunité, un projet naissant, une idée à concrétiser ou un talent à mettre en avant.",
-        message: "Le moment est venu de commencer. Vous avez déjà les outils nécessaires."
-        
-        reversed:{
-meaning:"Le Bateleur inversé peut révéler une manipulation ou un manque de confiance en soi.",
-love:"En amour, il peut indiquer des illusions ou un manque de sincérité.",
-work:"Au travail, il peut annoncer une mauvaise organisation ou un projet fragile.",
-message:"Clarifiez vos intentions avant d'agir."
-}
-      },
-      "papesse": {
-        name: "La Papesse",
-        image: "/images/tarot/la-papesse.webp",
-        meaning: "La Papesse symbolise l’intuition, la sagesse intérieure, le secret, l’observation et la patience.",
-        love: "En amour, elle parle de retenue, de profondeur, de sentiments cachés ou d’un lien qui mûrit en silence.",
-        work: "Au travail, elle invite à préparer, étudier, observer et ne pas agir trop vite.",
-        message: "Écoutez votre voix intérieure. Ce qui est silencieux est souvent ce qui est vrai."
-        
-        reversed:{
-meaning:"La Papesse inversée peut indiquer un manque d'écoute intérieure ou des secrets cachés.",
-love:"En amour, elle peut révéler des émotions refoulées ou un manque de communication.",
-work:"Dans le travail, elle suggère une information importante encore dissimulée.",
-message:"Prenez le temps d'écouter votre intuition."
-}
-      },
-      "imperatrice": {
-        name: "L’Impératrice",
-        image: "/images/tarot/l-imperatrice.webp",
-        meaning: "L’Impératrice évoque la création, l’abondance, l’intelligence, la féminité et l’expansion.",
-        love: "En amour, elle annonce une relation florissante, des sentiments exprimés, de la sensualité et de la joie.",
-        work: "Dans le travail, elle favorise les idées fertiles, les projets qui prennent forme et la communication.",
-        message: "Laissez grandir ce qui demande à naître. Votre énergie crée déjà le futur."
-        
-        reversed:{
-meaning:"L’Impératrice inversée peut symboliser un manque de créativité ou un déséquilibre émotionnel.",
-love:"En amour, elle peut signaler des tensions ou une dépendance affective.",
-work:"Au travail, elle peut indiquer un blocage créatif.",
-message:"Reconnectez-vous à votre capacité de création."
-}
-      },
       "empereur": {
         name: "L’Empereur",
         image: "/images/tarot/l-empereur.webp",
