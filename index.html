@@ -131,9 +131,8 @@ color:#f5f5f5;
 font-family: Georgia, serif;
 text-align:center;
 margin:0;
-padding:20px;
+padding:0;
 }
-
 h1{
 font-size:60px;
 letter-spacing:4px;
@@ -274,6 +273,30 @@ margin-top:15px;
   margin: 0 auto;
   border-radius: 10px;
 }
+  .page-content{
+max-width:900px;
+margin:0 auto;
+padding:40px 20px 60px 20px;
+box-sizing:border-box;
+}
+
+.tarot-image{
+display:block;
+width:100%;
+height:auto;
+margin:0;
+}
+
+.logo{
+width:180px;
+display:block;
+margin:30px auto 20px auto;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
 </style>
 </head>
 <meta name="description" content="Découvrez votre tirage tarot en ligne avec Arcana Oracle. Un tirage mystique passé, présent et futur pour éclairer votre chemin et révéler les messages des arcanes.">
@@ -287,6 +310,7 @@ margin-top:15px;
 <h1>Arcana Oracle</h1>
 
 <img src="/images/arcana-oracle-tarot.png" alt="Arcana Oracle Tarot" class="tarot-image">
+<div class="page-content">  
 <img src="/images/logo-arcana-oracle-tarot.png" alt="Arcana Oracle" class="logo">
 
 <h2>Découvrez votre passé, votre présent et votre futur grâce aux arcanes du tarot</h2>
@@ -424,9 +448,6 @@ document.getElementById("oracle-popup").style.display="none";
 
 <button class="close-popup" onclick="closePopup()">Fermer</button>
 
-</div>
-
-</div>
 </div>
 </body>
 </html>
