@@ -74,7 +74,37 @@ text-decoration:none;
 
 </head>
 
-<body>
+  <script>
+const cartes = [
+  "bateleur.jpg",
+  "papesse.jpg",
+  "imperatrice.jpg",
+  "empereur.jpg",
+  "pape.jpg",
+  "amoureux.jpg"
+];
+
+function tirerCarte() {
+    const index = Math.floor(Math.random() * cartes.length);
+    const carte = cartes[index];
+
+    const estInverse = Math.random() < 0.5;
+
+    const img = document.getElementById("carte");
+
+    img.src = "images/" + carte;
+
+    if (estInverse) {
+        img.style.transform = "rotate(180deg)";
+    } else {
+        img.style.transform = "rotate(0deg)";
+    }
+}
+
+window.onload = tirerCarte;
+</script>
+
+</body>
 
 <div class="container">
 
@@ -92,7 +122,8 @@ ou une tendance importante dans vos relations.
   <img id="card-image" src="" alt="Carte amour">
 
   <p id="card-message"></p>
-
+</div>
+  
   <button onclick="drawLoveCard()">Découvrir ma carte amour</button>
 </div>
 
@@ -160,9 +191,29 @@ const loveCards = [
   }
 ];
 
-function drawLoveCard(){
-  const index = Math.floor(Math.random() * loveCards.length);
-  const card = loveCards[index];
+function tirerCarte() {
+    const index = Math.floor(Math.random() * cartes.length);
+    const carte = cartes[index];
+
+    const estInverse = Math.random() < 0.5;
+
+    const img = document.getElementById("card-image");
+    const name = document.getElementById("card-name");
+    const message = document.getElementById("card-message");
+
+    img.src = "images/" + carte.image;
+    name.textContent = carte.nom;
+
+    if (estInverse) {
+        img.style.transform = "rotate(180deg)";
+        message.textContent = "⚠️ Carte inversée : " + carte.message;
+    } else {
+        img.style.transform = "rotate(0deg)";
+        message.textContent = carte.message;
+    }
+}
+
+window.onload = tirerCarte;
 
   document.getElementById("card-name").textContent = card.name;
   document.getElementById("card-image").src = card.image;
