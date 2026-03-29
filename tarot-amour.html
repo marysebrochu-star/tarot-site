@@ -1,228 +1,191 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <title>Tarot Amour | Arcana Oracle</title>
+  <meta name="description" content="Découvrez votre tarot amour avec Arcana Oracle. Recevez une guidance sentimentale et explorez les énergies de votre vie affective.">
 
-<title>Tarot Amour | Arcana Oracle</title>
+  <style>
+    body{
+      background:#0b0f1a;
+      color:white;
+      font-family:serif;
+      text-align:center;
+      margin:0;
+      padding:40px 20px;
+    }
 
-<meta name="description" content="Découvrez votre tarot amour avec Arcana Oracle. Recevez une guidance sentimentale et explorez les énergies de votre vie affective.">
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
 
-<style>
-body{
-background:#0b0f1a;
-color:white;
-font-family:serif;
-text-align:center;
-padding:40px;
-}
+    h1{
+      color:#d4af37;
+      font-size:42px;
+      margin-bottom:15px;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-}
+    h2{
+      color:#d4af37;
+      margin-top:30px;
+    }
 
-h1{
-color:#d4af37;
-font-size:42px;
-margin-bottom:15px;
-}
+    p{
+      font-size:20px;
+      line-height:1.7;
+      max-width:760px;
+      margin:20px auto;
+    }
 
-h2{
-color:#d4af37;
-margin-top:30px;
-}
+    .card-box{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(212,175,55,0.25);
+      border-radius:16px;
+      padding:25px;
+      margin-top:30px;
+    }
 
-p{
-font-size:20px;
-line-height:1.7;
-max-width:760px;
-margin:20px auto;
-}
+    #card-image{
+      max-width:300px;
+      width:100%;
+      border-radius:12px;
+      box-shadow:0 0 20px gold;
+      margin:20px auto;
+      display:block;
+      transition:transform 0.4s ease;
+    }
 
-.card-box{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(212,175,55,0.25);
-border-radius:16px;
-padding:25px;
-margin-top:30px;
-}
+    button{
+      background:#d4af37;
+      border:none;
+      padding:15px 25px;
+      font-size:18px;
+      border-radius:6px;
+      cursor:pointer;
+      margin-top:20px;
+    }
 
-img{
-max-width:300px;
-width:100%;
-border-radius:12px;
-box-shadow:0 0 20px gold;
-margin:20px 0;
-}
+    a{
+      color:#d4af37;
+      text-decoration:none;
+    }
 
-button{
-background:#d4af37;
-border:none;
-padding:15px 25px;
-font-size:18px;
-border-radius:6px;
-cursor:pointer;
-margin-top:20px;
-}
-
-a{
-color:#d4af37;
-text-decoration:none;
-}
-</style>
-
+    .cta-link{
+      display:inline-block;
+      margin-top:25px;
+      color:#0b0f1a;
+      background:#d4af37;
+      padding:14px 22px;
+      border-radius:8px;
+      font-weight:bold;
+    }
+  </style>
 </head>
+<body>
+
+  <div class="container">
+    <h1>Tarot Amour</h1>
+
+    <p>
+      Le tarot amour vous aide à mieux comprendre votre vie sentimentale.
+      Cette carte révèle une énergie affective, un message du cœur
+      ou une tendance importante dans vos relations.
+    </p>
+
+    <div class="card-box">
+      <h2 id="card-name">Votre carte amour</h2>
+      <img id="card-image" src="" alt="Carte amour">
+      <p id="card-message"></p>
+    </div>
+
+    <button onclick="drawLoveCard()">Découvrir ma carte amour</button>
+
+    <h2>Que révèle le tarot amour ?</h2>
+
+    <p>
+      Le tarot amour met en lumière les émotions, les liens affectifs,
+      les blocages du cœur et les possibilités d’évolution dans une relation.
+      Il peut vous aider à mieux comprendre une rencontre, une relation actuelle
+      ou un sentiment intérieur.
+    </p>
+
+    <p>
+      Les arcanes ne donnent pas seulement une réponse : ils éclairent
+      les dynamiques profondes de votre vie sentimentale et vous invitent
+      à avancer avec plus de conscience.
+    </p>
+
+    <a href="/success.html?product=small" class="cta-link">Faire un tirage complet</a>
+
+    <p style="margin-top:30px;">
+      <a href="/index.html">Retour à l'accueil</a>
+    </p>
+  </div>
 
   <script>
-const cartes = [
-  "bateleur.jpg",
-  "papesse.jpg",
-  "imperatrice.jpg",
-  "empereur.jpg",
-  "pape.jpg",
-  "amoureux.jpg"
-];
+    const loveCards = [
+      {
+        name: "L’Amoureux",
+        image: "/images/tarot/l-amoureux.webp",
+        message: "L’Amoureux met en lumière un choix du cœur, une rencontre importante ou une connexion affective profonde."
+      },
+      {
+        name: "Le Soleil",
+        image: "/images/tarot/le-soleil.webp",
+        message: "Le Soleil annonce une énergie lumineuse en amour : sincérité, joie et harmonie peuvent illuminer votre relation."
+      },
+      {
+        name: "La Lune",
+        image: "/images/tarot/la-lune.webp",
+        message: "La Lune révèle des émotions profondes, des doutes ou une sensibilité très forte dans votre vie sentimentale."
+      },
+      {
+        name: "L’Étoile",
+        image: "/images/tarot/l-etoile.webp",
+        message: "L’Étoile apporte douceur, espoir et guérison du cœur. Une belle énergie affective vous accompagne."
+      },
+      {
+        name: "Le Diable",
+        image: "/images/tarot/le-diable.webp",
+        message: "Le Diable parle de passion, de désir intense et d’un lien magnétique qui peut être très fort émotionnellement."
+      },
+      {
+        name: "Tempérance",
+        image: "/images/tarot/temperance.webp",
+        message: "Tempérance vous invite à la patience, à l’équilibre et à la douceur dans votre vie affective."
+      },
+      {
+        name: "La Force",
+        image: "/images/tarot/la-force.webp",
+        message: "La Force annonce une relation qui demande confiance, calme et solidité émotionnelle."
+      }
+    ];
 
-function tirerCarte() {
-    const index = Math.floor(Math.random() * cartes.length);
-    const carte = cartes[index];
+    function drawLoveCard() {
+      const index = Math.floor(Math.random() * loveCards.length);
+      const card = loveCards[index];
+      const estInverse = Math.random() < 0.5;
 
-    const estInverse = Math.random() < 0.5;
+      const name = document.getElementById("card-name");
+      const img = document.getElementById("card-image");
+      const message = document.getElementById("card-message");
 
-    const img = document.getElementById("carte");
+      name.textContent = card.name;
+      img.src = card.image;
+      img.alt = card.name;
 
-    img.src = "images/" + carte;
-
-    if (estInverse) {
+      if (estInverse) {
         img.style.transform = "rotate(180deg)";
-    } else {
+        message.textContent = "⚠️ Carte inversée : " + card.message;
+      } else {
         img.style.transform = "rotate(0deg)";
+        message.textContent = card.message;
+      }
     }
-}
 
-window.onload = tirerCarte;
-</script>
-
-</body>
-
-<div class="container">
-
-<h1>Tarot Amour</h1>
-
-<p>
-Le tarot amour vous aide à mieux comprendre votre vie sentimentale.
-Cette carte révèle une énergie affective, un message du cœur
-ou une tendance importante dans vos relations.
-</p>
-
-<div class="card-box">
-  <h2 id="card-name">Votre carte amour</h2>
-
-  <img id="card-image" src="" alt="Carte amour">
-
-  <p id="card-message"></p>
-</div>
-  
-  <button onclick="drawLoveCard()">Découvrir ma carte amour</button>
-</div>
-
-<h2>Que révèle le tarot amour ?</h2>
-
-<p>
-Le tarot amour met en lumière les émotions, les liens affectifs,
-les blocages du cœur et les possibilités d’évolution dans une relation.
-Il peut vous aider à mieux comprendre une rencontre, une relation actuelle
-ou un sentiment intérieur.
-</p>
-
-<p>
-Les arcanes ne donnent pas seulement une réponse : ils éclairent
-les dynamiques profondes de votre vie sentimentale et vous invitent
-à avancer avec plus de conscience.
-</p>
-
-<a href="/success.html?product=small">
-<button>Faire un tirage complet</button>
-</a>
-
-<p style="margin-top:30px;">
-<a href="/index.html">Retour à l'accueil</a>
-</p>
-
-</div>
-
-<script>
-const loveCards = [
-  {
-    name: "L’Amoureux",
-    image: "/images/tarot/l-amoureux.webp",
-    message: "L’Amoureux met en lumière un choix du cœur, une rencontre importante ou une connexion affective profonde."
-  },
-  {
-    name: "Le Soleil",
-    image: "/images/tarot/le-soleil.webp",
-    message: "Le Soleil annonce une énergie lumineuse en amour : sincérité, joie et harmonie peuvent illuminer votre relation."
-  },
-  {
-    name: "La Lune",
-    image: "/images/tarot/la-lune.webp",
-    message: "La Lune révèle des émotions profondes, des doutes ou une sensibilité très forte dans votre vie sentimentale."
-  },
-  {
-    name: "L’Étoile",
-    image: "/images/tarot/l-etoile.webp",
-    message: "L’Étoile apporte douceur, espoir et guérison du cœur. Une belle énergie affective vous accompagne."
-  },
-  {
-    name: "Le Diable",
-    image: "/images/tarot/le-diable.webp",
-    message: "Le Diable parle de passion, de désir intense et d’un lien magnétique qui peut être très fort émotionnellement."
-  },
-  {
-    name: "Tempérance",
-    image: "/images/tarot/temperance.webp",
-    message: "Tempérance vous invite à la patience, à l’équilibre et à la douceur dans votre vie affective."
-  },
-  {
-    name: "La Force",
-    image: "/images/tarot/la-force.webp",
-    message: "La Force annonce une relation qui demande confiance, calme et solidité émotionnelle."
-  }
-];
-
-function tirerCarte() {
-    const index = Math.floor(Math.random() * cartes.length);
-    const carte = cartes[index];
-
-    const estInverse = Math.random() < 0.5;
-
-    const img = document.getElementById("card-image");
-    const name = document.getElementById("card-name");
-    const message = document.getElementById("card-message");
-
-    img.src = "images/" + carte.image;
-    name.textContent = carte.nom;
-
-    if (estInverse) {
-        img.style.transform = "rotate(180deg)";
-        message.textContent = "⚠️ Carte inversée : " + carte.message;
-    } else {
-        img.style.transform = "rotate(0deg)";
-        message.textContent = carte.message;
-    }
-}
-
-window.onload = tirerCarte;
-
-  document.getElementById("card-name").textContent = card.name;
-  document.getElementById("card-image").src = card.image;
-  document.getElementById("card-image").alt = card.name;
-  document.getElementById("card-message").textContent = card.message;
-}
-
-drawLoveCard();
-</script>
+    window.onload = drawLoveCard;
+  </script>
 
 </body>
 </html>
