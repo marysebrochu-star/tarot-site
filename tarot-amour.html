@@ -125,43 +125,140 @@
 
   <script>
     const loveCards = [
+  {
+    name: "L’Amoureux",
+    image: "/images/tarot/l-amoureux.webp",
+    upright: "Connexion forte, amour sincère ou choix important du cœur.",
+    reversed: "Hésitation, déséquilibre émotionnel ou difficulté à faire un choix en amour."
+  },
+  {
+    name: "Le Soleil",
+    image: "/images/tarot/le-soleil.webp",
+    upright: "Joie, amour sincère et relation épanouie.",
+    reversed: "Manque de clarté, tensions ou joie bloquée dans la relation."
+  },
+  {
+    name: "La Lune",
+    image: "/images/tarot/la-lune.webp",
+    upright: "Émotions profondes, intuition et sensibilité en amour.",
+    reversed: "Confusion, illusions ou peurs dans la relation."
+  },
+  {
+    name: "L’Étoile",
+    image: "/images/tarot/l-etoile.webp",
+    upright: "Espoir, douceur et guérison du cœur.",
+    reversed: "Doute, perte de foi ou blessure émotionnelle."
+  },
+  {
+    name: "Le Diable",
+    image: "/images/tarot/le-diable.webp",
+    upright: "Passion intense, attraction forte.",
+    reversed: "Relation toxique, dépendance ou attachement négatif."
+  },
+  {
+    name: "Tempérance",
+    image: "/images/tarot/temperance.webp",
+    upright: "Équilibre, harmonie et communication saine.",
+    reversed: "Déséquilibre ou manque d’harmonie."
+  },
+  {
+    name: "La Force",
+    image: "/images/tarot/la-force.webp",
+    upright: "Relation solide, confiance et maîtrise émotionnelle.",
+    reversed: "Doute, manque de confiance ou tensions."
+  }
       {
-        name: "L’Amoureux",
-        image: "/images/tarot/l-amoureux.webp",
-        message: "L’Amoureux met en lumière un choix du cœur, une rencontre importante ou une connexion affective profonde."
-      },
-      {
-        name: "Le Soleil",
-        image: "/images/tarot/le-soleil.webp",
-        message: "Le Soleil annonce une énergie lumineuse en amour : sincérité, joie et harmonie peuvent illuminer votre relation."
-      },
-      {
-        name: "La Lune",
-        image: "/images/tarot/la-lune.webp",
-        message: "La Lune révèle des émotions profondes, des doutes ou une sensibilité très forte dans votre vie sentimentale."
-      },
-      {
-        name: "L’Étoile",
-        image: "/images/tarot/l-etoile.webp",
-        message: "L’Étoile apporte douceur, espoir et guérison du cœur. Une belle énergie affective vous accompagne."
-      },
-      {
-        name: "Le Diable",
-        image: "/images/tarot/le-diable.webp",
-        message: "Le Diable parle de passion, de désir intense et d’un lien magnétique qui peut être très fort émotionnellement."
-      },
-      {
-        name: "Tempérance",
-        image: "/images/tarot/temperance.webp",
-        message: "Tempérance vous invite à la patience, à l’équilibre et à la douceur dans votre vie affective."
-      },
-      {
-        name: "La Force",
-        image: "/images/tarot/la-force.webp",
-        message: "La Force annonce une relation qui demande confiance, calme et solidité émotionnelle."
-      }
-    ];
-
+  name: "Le Jugement",
+  image: "/images/tarot/le-jugement.webp",
+  upright: "Le Jugement annonce un renouveau en amour, une prise de conscience ou un retour important. Une relation peut évoluer vers plus de vérité et de clarté.",
+  reversed: "Blocage émotionnel, difficulté à pardonner ou à tourner la page. Une relation du passé peut encore peser sur votre cœur."
+},
+{
+  name: "La Papesse",
+  image: "/images/tarot/la-papesse.webp",
+  upright: "La Papesse invite à écouter son intuition en amour. Une relation profonde, discrète ou spirituelle peut se développer avec douceur.",
+  reversed: "Silence émotionnel, secrets ou non-dits dans la relation. Quelqu’un peut cacher ses vérités ou ne pas s’ouvrir pleinement."
+},
+{
+  name: "Le Pape",
+  image: "/images/tarot/le-pape.webp",
+  upright: "Le Pape symbolise une relation sérieuse, basée sur la confiance, les valeurs communes et un engagement sincère."
+  reversed: "Difficulté d’engagement, désaccord sur les valeurs ou relation bloquée dans une structure qui ne convient plus."
+},
+{
+  name: "Le Bateleur",
+  image: "/images/tarot/le-bateleur.webp",
+  upright: "Le Pape symbolise une relation sérieuse, basée sur la confiance, les valeurs communes et un engagement sincère.",
+  reversed: "Manque de sérieux, intentions floues ou relation basée sur l’illusion. Attention à quelqu’un qui ne s’investit pas réellement."
+},
+{
+  name: "Le Chariot",
+  image: "/images/tarot/le-chariot.webp",
+  upright: "Le Chariot indique une progression en amour, une relation qui avance avec détermination et une volonté commune de construire quelque chose.",
+  reversed: "Conflits, manque de direction ou relation qui avance sans équilibre. L’un des deux peut forcer les choses."
+},
+{
+  name: "L’Ermite",
+  image: "/images/tarot/l-ermite.webp",
+  upright: "L’Ermite invite à prendre du recul pour mieux comprendre ses émotions. Il peut annoncer une phase de réflexion bénéfique pour la relation.",
+  reversed: "Isolement affectif, fermeture émotionnelle ou difficulté à se connecter à l’autre. Besoin d’ouverture du cœur."
+},
+{
+  name: "La Justice",
+  image: "/images/tarot/la-justice.webp",
+  upright: "La Justice annonce une relation équilibrée, honnête et basée sur des décisions justes. Elle favorise la clarté et la stabilité émotionnelle.",
+  reversed: "Injustice dans la relation, déséquilibre ou manque d’honnêteté. Une vérité n’est peut-être pas totalement dite."
+},
+{
+  name: "Le Fol",
+  image: "/images/tarot/le-fol.webp",
+  upright: "Le Fol représente un nouvel élan amoureux, une relation libre, spontanée et pleine de possibilités. Il invite à suivre son cœur sans peur.",
+  reversed: "Instabilité émotionnelle, relation imprévisible ou peur de s’engager. Une fuite ou un manque de maturité affective."
+},
+    {
+  name: "Arcane sans nom",
+  image: "/images/tarot/arcane-sans-nom.webp",
+  upright: "Transformation profonde en amour. Une fin nécessaire ouvre la voie à un renouveau émotionnel plus authentique.",
+  reversed: "Difficulté à lâcher prise, attachement au passé ou peur du changement. Une relation peut stagner par refus d’évoluer."
+},
+    {
+  name: "Le Pendu",
+  image: "/images/tarot/le-pendu.webp",
+  upright: "Pause en amour, besoin de voir la relation autrement. Invitation à lâcher le contrôle et à accepter une situation.",
+  reversed: "Blocage émotionnel, sacrifice inutile ou impression d’être coincé dans une relation sans évolution."
+},
+    {
+  name: "L’Empereur",
+  image: "/images/tarot/l-empereur.webp",
+  upright: "Stabilité, protection et engagement solide. Une relation structurée et sécurisante peut s’installer.",
+  reversed: "Rigidité, domination ou manque d’émotion. La relation peut devenir froide ou trop contrôlée."
+},
+    {
+  name: "L’Impératrice",
+  image: "/images/tarot/l-imperatrice.webp",
+  upright: "Amour fertile, séduction, communication et épanouissement affectif. Une belle évolution sentimentale est possible.",
+  reversed: "Manque de communication, insécurité ou dépendance affective. Difficulté à exprimer ses sentiments."
+},
+    {
+  name: "La Roue de Fortune",
+  image: "/images/tarot/roue-de-fortune.webp",
+  upright: "Changement positif en amour, tournant important ou évolution inattendue dans la relation.",
+  reversed: "Cycle bloqué, répétition des mêmes schémas ou difficulté à avancer dans la relation."
+},
+  {
+  name: "Le Monde",
+  image: "/images/tarot/le-monde.webp",
+  upright: "Accomplissement amoureux, harmonie totale et relation épanouie. Union complète et sentiment d’aboutissement.",
+  reversed: "Incomplétude, distance émotionnelle ou relation qui n’atteint pas son plein potentiel."
+},  
+    {
+  name: "La Maison Dieu",
+  image: "/images/tarot/maison-dieu.webp",
+  upright: "Révélation soudaine, rupture ou choc émotionnel qui libère une vérité en amour.",
+  reversed: "Crise évitée, tensions cachées ou relation instable qui peut exploser si rien ne change."
+},
+];
+       
     function drawLoveCard() {
       const index = Math.floor(Math.random() * loveCards.length);
       const card = loveCards[index];
@@ -175,16 +272,17 @@
       img.src = card.image;
       img.alt = card.name;
 
-      if (estInverse) {
-        img.style.transform = "rotate(180deg)";
-        message.textContent = "⚠️ Carte inversée : " + card.message;
-      } else {
-        img.style.transform = "rotate(0deg)";
-        message.textContent = card.message;
-      }
-    }
+     if (estInverse) {
+  message.textContent = "⚠️ Carte inversée : " + card.reversed;
+} else {
+  message.textContent = card.upright;
+}
+} else {
+  img.style.transform = "rotate(0deg)";
+  message.textContent = card.upright;
+}
 
-    window.onload = drawLoveCard;
+window.onload = drawLoveCard;
   </script>
 
 </body>
