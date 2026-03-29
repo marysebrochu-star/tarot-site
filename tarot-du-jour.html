@@ -184,7 +184,7 @@ aujourd’hui. Cette carte peut éclairer vos émotions, vos choix et votre chem
   <p id="card-message" class="message"></p>
 </div>
 
-<button onclick="tirerCarte()">Voir ma carte du jour</button>
+<button onclick="tirerCarte()" class="start-button">Voir ma carte du jour</button>
 
   <div class="share">
     <a id="share-facebook" target="_blank">Facebook</a>
@@ -281,17 +281,17 @@ function drawDailyCard(){
   document.getElementById("card-image").alt = card.name;
   document.getElementById("card-message").textContent = card.message;
 
-  const pageURL = window.location.href;
-  const text = "Découvrez votre tarot du jour sur Arcana Oracle ✨";
+const pageURL = window.location.href;
+const text = "Découvrez votre tarot du jour sur Arcana Oracle ✨";
 
-  document.getElementById("share-facebook").href =
-    "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
+document.getElementById("share-facebook").href =
+  "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
 
-  document.getElementById("share-twitter").href =
-    "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(pageURL);
+document.getElementById("share-twitter").href =
+  "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(pageURL);
 
-  document.getElementById("share-whatsapp").href =
-    "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + " " + pageURL);
+document.getElementById("share-whatsapp").href =
+  "https://wa.me/?text=" + encodeURIComponent(text + " " + pageURL);
 }
 
 drawDailyCard();
