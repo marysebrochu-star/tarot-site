@@ -115,7 +115,56 @@ text-decoration:none;
 
 </head>
 
-<body>
+ <script>
+const cartes = [
+  "bateleur.jpg",
+  "papesse.jpg",
+  "imperatrice.jpg",
+  "empereur.jpg",
+  "pape.jpg",
+  "amoureux.jpg"
+];
+
+<script>
+const cartes = [
+  {
+    nom: "Le Bateleur",
+    image: "bateleur.jpg",
+    message: "Un nouveau départ s’offre à vous."
+  },
+  {
+    nom: "La Papesse",
+    image: "papesse.jpg",
+    message: "Écoutez votre intuition."
+  }
+];
+
+function tirerCarte() {
+    const index = Math.floor(Math.random() * cartes.length);
+    const carte = cartes[index];
+
+    const estInverse = Math.random() < 0.5;
+
+    const img = document.getElementById("card-image");
+    const name = document.getElementById("card-name");
+    const message = document.getElementById("card-message");
+
+    img.src = "images/" + carte.image;
+    name.textContent = carte.nom;
+
+    if (estInverse) {
+        img.style.transform = "rotate(180deg)";
+        message.textContent = "⚠️ Carte inversée : " + carte.message;
+    } else {
+        img.style.transform = "rotate(0deg)";
+        message.textContent = carte.message;
+    }
+}
+
+window.onload = tirerCarte;
+</script>
+
+</body>
 
 <div class="container">
 
@@ -133,6 +182,7 @@ aujourd’hui. Cette carte peut éclairer vos émotions, vos choix et votre chem
   <img id="card-image" src="" alt="Carte du jour tarot">
 
   <p id="card-message" class="message"></p>
+</div>
 
   <button onclick="drawDailyCard()">Voir ma carte du jour</button>
 
