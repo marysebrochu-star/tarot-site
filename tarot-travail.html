@@ -125,48 +125,144 @@ les obstacles et les évolutions possibles dans votre carrière.
 
 <script>
 
-const workCards = [
-
+const workCards =[
+  {
+  name: "Le Diable",
+  image: "/images/tarot/le-diable.webp",
+  upright: "Ambition forte, pouvoir, réussite matérielle ou attachement au travail. Attention aux excès.",
+  reversed: "Blocage, dépendance ou environnement toxique au travail. Besoin de se libérer d’une situation pesante."
+}
+  {
+  name: "Le Jugement",
+  image: "/images/tarot/le-jugement.webp",
+  upright: "Prise de conscience, opportunité de renouveau ou évolution importante dans votre carrière.",
+  reversed: "Hésitation, retard ou difficulté à saisir une opportunité. Le changement est présent mais freiné."
+}
+  {
+  name: "La Papesse",
+  image: "/images/tarot/la-papesse.webp",
+  upright: "Observation, intuition et stratégie. Une situation demande patience et réflexion avant d’agir.",
+  reversed: "Manque de clarté, secrets ou informations cachées dans le travail. Attention à ce qui n’est pas dit."
+}
+  {
+  name: "Le Pape",
+  image: "/images/tarot/le-pape.webp",
+  upright: "Stabilité professionnelle, apprentissage ou soutien d’un mentor. Une structure solide vous guide.",
+  reversed: "Rigidité, blocage ou environnement trop strict. Difficulté à évoluer dans un cadre trop limité."
+}
+  {
+  name: "Le Bateleur",
+  image: "/images/tarot/le-bateleur.webp",
+  upright: "Nouveau projet, opportunité ou début prometteur dans le travail. Créativité et initiative sont favorisées.",
+  reversed: "Manque de sérieux, projet mal préparé ou opportunité peu fiable. Attention aux illusions professionnelles."
+}
+  {
+  name: "L’Hermite",
+  image: "/images/tarot/l-ermite.webp",
+  upright: "Réflexion profonde, besoin de recul ou recherche de sens dans votre carrière. Une évolution intérieure est en cours.",
+  reversed: "Isolement professionnel, perte de motivation ou difficulté à trouver sa voie. Risque de stagnation."
+}
+  {
+  name: "La Justice",
+  image: "/images/tarot/la-justice.webp",
+  upright: "Clarté, décisions justes et équilibre dans le travail. Une situation se régule et devient plus stable.",
+  reversed: "Injustice, déséquilibre ou décision défavorable. Attention aux erreurs ou au manque d’équité dans votre environnement professionnel."
+}
+  {
+  name: "Le Fol",
+  image: "/images/tarot/le-fol.webp",
+  upright: "Nouveau départ professionnel, opportunité inattendue ou envie de liberté dans le travail. Une voie différente peut s’ouvrir à vous.",
+  reversed: "Manque de direction, instabilité ou décisions impulsives dans le travail. Attention à un manque de préparation."
+}
+  {
+  name: "L’Étoile",
+  image: "/images/tarot/l-etoile.webp",
+  upright: "Espoir, inspiration et opportunités positives. Une évolution professionnelle douce et prometteuse se dessine.",
+  reversed: "Manque de confiance, doute sur l’avenir professionnel ou perte de motivation. Besoin de retrouver foi en son chemin."
+}
+  {
+  name: "La Lune",
+  image: "/images/tarot/la-lune.webp",
+  upright: "Incertitudes professionnelles, intuition à suivre et situation encore floue. Faites confiance à votre ressenti.",
+  reversed: "Confusion, illusions ou manque de clarté dans le travail. Attention aux malentendus ou aux situations trompeuses."
+}
+  {
+  name: "L’Amoureux",
+  image: "/images/tarot/l-amoureux.webp",
+  upright: "Choix important dans le travail, collaboration ou opportunité à suivre avec le cœur. Une décision alignée est nécessaire.",
+  reversed: "Indécision, conflit intérieur ou difficulté à choisir une direction professionnelle. Risque de mauvais choix."
+}
+  {
+  name: "Arcane sans nom",
+  image: "/images/tarot/arcane-sans-nom.webp",
+  upright: "Transformation professionnelle majeure, fin d’un cycle et renouveau. Une nouvelle voie peut émerger après un changement nécessaire.",
+  reversed: "Résistance au changement, peur de quitter une situation ou difficulté à tourner une page professionnelle."
+}
+  {
+  name: "Le Pendu",
+  image: "/images/tarot/le-pendu.webp",
+  upright: "Pause professionnelle, besoin de prendre du recul pour mieux comprendre une situation. Changer de perspective sera bénéfique.",
+  reversed: "Blocage, stagnation ou impression d’être coincé dans une situation professionnelle sans évolution."
+}
+  {
+  name: "L’Impératrice",
+  image: "/images/tarot/l-imperatrice.webp",
+  upright: "Créativité, expansion et nouvelles opportunités professionnelles. Un projet peut se développer avec succès et reconnaissance.",
+  reversed: "Manque d’inspiration, blocage créatif ou difficulté à faire évoluer un projet. Besoin de retrouver confiance en ses idées."
+}
+{
+  name: "La Maison Dieu",
+  image: "/images/tarot/maison-dieu.webp",
+  upright: "Changement soudain dans le travail, révélation ou rupture nécessaire. Une situation instable peut se transformer rapidement pour vous réaligner.",
+  reversed: "Tensions cachées, peur du changement ou crise évitée. Une situation professionnelle fragile pourrait exploser si rien ne change."
+}
 {
 name:"Le Chariot",
 image:"/images/tarot/le-chariot.webp",
-message:"Le Chariot annonce une progression rapide dans votre carrière. Votre détermination peut vous mener vers une réussite importante."
+message:"Le Chariot annonce une progression rapide dans votre carrière. Votre détermination peut vous mener vers une réussite importante.",
+reversed: "Manque de direction professionnelle, obstacles ou projets qui n’avancent pas comme prévu. Risque de précipitation ou de perte de contrôle dans votre parcours."  
 },
 
 {
 name:"La Roue de Fortune",
 image:"/images/tarot/la-roue-de-fortune.webp",
-message:"Un changement professionnel est possible. Une opportunité inattendue peut transformer votre situation."
+message:"Un changement professionnel est possible. Une opportunité inattendue peut transformer votre situation.",
+reversed: "Blocage dans l’évolution professionnelle, stagnation ou répétition des mêmes difficultés. Un cycle défavorable peut ralentir vos opportunités."  
 },
 
 {
 name:"L'Empereur",
 image:"/images/tarot/l-empereur.webp",
-message:"L’Empereur symbolise la stabilité et l’autorité. Une position solide ou une responsabilité importante peut apparaître."
+message:"L’Empereur symbolise la stabilité et l’autorité. Une position solide ou une responsabilité importante peut apparaître.",
+reversed: "Manque de structure, autorité mal gérée ou environnement professionnel rigide. Difficulté à s’imposer ou conflits avec une figure d’autorité."  
 },
 
 {
 name:"Tempérance",
 image:"/images/tarot/temperance.webp",
-message:"Tempérance invite à la patience et à l’équilibre. Une évolution progressive est en cours dans votre travail."
+message:"Tempérance invite à la patience et à l’équilibre. Une évolution progressive est en cours dans votre travail.",
+reversed: "Déséquilibre dans le travail, mauvaise gestion du temps ou difficulté à collaborer. Besoin de retrouver harmonie et organisation."  
 },
 
 {
 name:"Le Soleil",
 image:"/images/tarot/le-soleil.webp",
-message:"Le Soleil annonce succès et reconnaissance professionnelle. Votre travail peut être valorisé."
+message:"Le Soleil annonce succès et reconnaissance professionnelle. Votre travail peut être valorisé.",
+reversed: "Manque de reconnaissance, baisse de motivation ou tensions dans l’environnement professionnel. Succès retardé ou satisfaction diminuée."  
 },
 
 {
 name:"La Force",
 image:"/images/tarot/la-force.webp",
-message:"La Force indique que votre persévérance et votre calme intérieur seront essentiels pour avancer."
+message:"La Force indique que votre persévérance et votre calme intérieur seront essentiels pour avancer.",
+reversed: "Perte de confiance en soi, fatigue ou difficulté à gérer la pression au travail. Besoin de retrouver maîtrise et stabilité intérieure."  
 },
 
 {
 name:"Le Monde",
 image:"/images/tarot/le-monde.webp",
-message:"Le Monde révèle un accomplissement professionnel important ou l'aboutissement d'un projet."
+message:"Le Monde révèle un accomplissement professionnel important ou l'aboutissement d'un projet.",
+reversed: "Objectifs non atteints, sentiment d’incomplétude ou projet qui n’aboutit pas. Il manque encore un élément pour finaliser votre réussite."  
 }
 
 ];
