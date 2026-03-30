@@ -1,54 +1,72 @@
-import Stripe from "stripe";
-import { createClient } from "@supabase/supabase-js";
-
-export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
-  const sessionId = req.query.session_id;
-
-  if (!sessionId) {
-    return res.status(400).json({ error: "Missing session_id" });
-  }
-
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2025-02-24.acacia",
-  });
-
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
-  try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-
-    if (!session || session.payment_status !== "paid") {
-      return res.status(403).json({ error: "Payment not completed" });
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Paiement confirmé</title>
+  <style>
+    body {
+      background:#0b0b0f;
+      color:#f5f5f5;
+      font-family:Georgia, serif;
+      text-align:center;
+      padding:60px 20px;
+      margin:0;
     }
 
-    const { data, error } = await supabase
-      .from("paid_sessions")
-      .select("draw_id, product_code, payment_status")
-      .eq("session_id", sessionId)
-      .maybeSingle();
-
-    if (error) {
-      return res.status(500).json({ error: error.message });
+    h1 {
+      color:#d4af37;
+      margin-bottom:20px;
     }
 
-    if (!data) {
-      return res.status(404).json({ error: "Draw not ready yet" });
+    #message {
+      font-size:20px;
+      margin-top:20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Paiement confirmé ✅</h1>
+  <p id="message">Nous préparons votre tirage...</p>
+
+  <script>
+    async function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    return res.status(200).json({
-      ok: true,
-      draw_id: data.draw_id,
-      product_code: data.product_code,
-    });
-  } catch (err) {
-    return res.status(500).json({ error: err.message });
-  }
-}
+    async function run() {
+      const message = document.getElementById("message");
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id");
+
+      if (!sessionId) {
+        message.textContent = "Erreur : session_id manquant.";
+        return;
+      }
+
+      for (let i = 0; i < 10; i++) {
+        try {
+          const res = await fetch(`/api/get-draw?session_id=${encodeURIComponent(sessionId)}`);
+          const data = await res.json();
+
+          if (res.ok && data.draw_id) {
+            message.textContent = "Tirage prêt...";
+            window.location.href = `/draw.html?id=${encodeURIComponent(data.draw_id)}`;
+            return;
+          }
+
+          message.textContent = "Paiement reçu. Préparation du tirage...";
+        } catch (e) {
+          message.textContent = "Préparation du tirage...";
+        }
+
+        await wait(1500);
+      }
+
+      message.textContent = "Le paiement est reçu, mais le tirage prend un peu plus de temps. Rechargez cette page dans quelques secondes.";
+    }
+
+    run();
+  </script>
+</body>
+</html>
 
