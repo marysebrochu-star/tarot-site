@@ -30,12 +30,6 @@
       font-family:'Cormorant Garamond', serif;
       padding:40px 20px 60px;
     }
-    .meaning{
-font-size:18px;
-margin-top:8px;
-color:#ddd;
-}
-
 
     .container{
       max-width:1200px;
@@ -65,74 +59,69 @@ color:#ddd;
       font-size:24px;
       margin-bottom:34px;
     }
+
     .shuffle-zone{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:18px;
-  margin:10px 0 34px;
-  min-height:390px;
-}
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      margin:10px 0 34px;
+      min-height:390px;
+    }
 
-.shuffle-card{
-  width:180px;
-  height:300px;
-  border-radius:18px;
-  border:1px solid rgba(212,175,55,0.28);
-  background:
-    radial-gradient(circle at center, rgba(212,175,55,0.18), transparent 45%),
-    linear-gradient(180deg, #121521 0%, #0d1018 100%);
-  box-shadow:0 0 24px rgba(212,175,55,0.12);
-  position:relative;
-  transform-origin:center center;
-}
+    .shuffle-card{
+      width:180px;
+      height:300px;
+      border-radius:18px;
+      border:1px solid rgba(212,175,55,0.28);
+      background:
+        radial-gradient(circle at center, rgba(212,175,55,0.18), transparent 45%),
+        linear-gradient(180deg, #121521 0%, #0d1018 100%);
+      box-shadow:0 0 24px rgba(212,175,55,0.12);
+      position:relative;
+      transform-origin:center center;
+    }
 
-.shuffle-card::before{
-  content:"☾ ✦ ☽";
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--gold);
-  font-family:'Cinzel', serif;
-  font-size:34px;
-  letter-spacing:4px;
-}
+    .shuffle-card::before{
+      content:"☾ ✦ ☽";
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold);
+      font-family:'Cinzel', serif;
+      font-size:34px;
+      letter-spacing:4px;
+    }
 
-.shuffle-1{
-  animation:shuffleLeft 1.2s ease-in-out infinite;
-}
-.shuffle-2{
-  animation:shuffleCenter 1.2s ease-in-out infinite;
-}
-.shuffle-3{
-  animation:shuffleRight 1.2s ease-in-out infinite;
-}
+    .shuffle-1{ animation:shuffleLeft 1.2s ease-in-out infinite; }
+    .shuffle-2{ animation:shuffleCenter 1.2s ease-in-out infinite; }
+    .shuffle-3{ animation:shuffleRight 1.2s ease-in-out infinite; }
 
-@keyframes shuffleLeft{
-  0%{transform:translateX(0) rotate(-6deg);}
-  25%{transform:translateX(18px) rotate(-10deg);}
-  50%{transform:translateX(6px) rotate(-3deg);}
-  75%{transform:translateX(22px) rotate(-8deg);}
-  100%{transform:translateX(0) rotate(-6deg);}
-}
+    @keyframes shuffleLeft{
+      0%{transform:translateX(0) rotate(-6deg);}
+      25%{transform:translateX(18px) rotate(-10deg);}
+      50%{transform:translateX(6px) rotate(-3deg);}
+      75%{transform:translateX(22px) rotate(-8deg);}
+      100%{transform:translateX(0) rotate(-6deg);}
+    }
 
-@keyframes shuffleCenter{
-  0%{transform:translateY(0) rotate(0deg);}
-  25%{transform:translateY(-10px) rotate(2deg);}
-  50%{transform:translateY(0) rotate(0deg);}
-  75%{transform:translateY(-8px) rotate(-2deg);}
-  100%{transform:translateY(0) rotate(0deg);}
-}
+    @keyframes shuffleCenter{
+      0%{transform:translateY(0) rotate(0deg);}
+      25%{transform:translateY(-10px) rotate(2deg);}
+      50%{transform:translateY(0) rotate(0deg);}
+      75%{transform:translateY(-8px) rotate(-2deg);}
+      100%{transform:translateY(0) rotate(0deg);}
+    }
 
-@keyframes shuffleRight{
-  0%{transform:translateX(0) rotate(6deg);}
-  25%{transform:translateX(-18px) rotate(10deg);}
-  50%{transform:translateX(-6px) rotate(3deg);}
-  75%{transform:translateX(-22px) rotate(8deg);}
-  100%{transform:translateX(0) rotate(6deg);}
-}
+    @keyframes shuffleRight{
+      0%{transform:translateX(0) rotate(6deg);}
+      25%{transform:translateX(-18px) rotate(10deg);}
+      50%{transform:translateX(-6px) rotate(3deg);}
+      75%{transform:translateX(-22px) rotate(8deg);}
+      100%{transform:translateX(0) rotate(6deg);}
+    }
 
     .cards{
       display:flex;
@@ -160,6 +149,10 @@ color:#ddd;
       transform:translateY(0);
     }
 
+    .card-slot.flipped .card-inner{
+      transform:rotateY(180deg);
+    }
+
     .card-3d{
       width:230px;
       height:380px;
@@ -174,10 +167,6 @@ color:#ddd;
       transition:transform 1.15s ease;
     }
 
-    .card-slot.flipped .card-inner{
-      transform:rotateY(180deg);
-    }
-
     .card-face{
       position:absolute;
       inset:0;
@@ -188,11 +177,6 @@ color:#ddd;
       box-shadow:var(--shadow);
       background:var(--panel);
     }
-.card{
-opacity:0;
-transform:translateY(20px);
-transition:all 0.6s ease;
-}
 
     .card-back{
       display:flex;
@@ -259,6 +243,14 @@ transition:all 0.6s ease;
     .orientation{
       font-size:18px;
       color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    .meaning{
+      font-size:18px;
+      line-height:1.5;
+      color:#ddd;
+      margin-top:8px;
     }
 
     .summary{
@@ -302,82 +294,13 @@ transition:all 0.6s ease;
       font-size:22px;
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       body{padding:24px 14px 40px}
       h1{font-size:34px}
       .subtitle{font-size:20px}
       .card-3d{width:220px;height:360px}
       .summary{font-size:21px;padding:22px}
     }
-    .shuffle-zone{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:18px;
-margin:30px 0;
-min-height:320px;
-}
-
-.shuffle-card{
-width:160px;
-height:260px;
-border-radius:18px;
-border:1px solid rgba(212,175,55,0.28);
-background:
-radial-gradient(circle at center, rgba(212,175,55,0.18), transparent 45%),
-linear-gradient(180deg, #121521 0%, #0d1018 100%);
-box-shadow:0 0 24px rgba(212,175,55,0.12);
-position:relative;
-transform-origin:center center;
-}
-
-.shuffle-card::before{
-content:"☾ ✦ ☽";
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#d4af37;
-font-size:32px;
-letter-spacing:4px;
-}
-
-.shuffle-1{
-animation:shuffleLeft 1.2s ease-in-out infinite;
-}
-
-.shuffle-2{
-animation:shuffleCenter 1.2s ease-in-out infinite;
-}
-
-.shuffle-3{
-animation:shuffleRight 1.2s ease-in-out infinite;
-}
-
-@keyframes shuffleLeft{
-0%{transform:translateX(0) rotate(-6deg);}
-25%{transform:translateX(18px) rotate(-10deg);}
-50%{transform:translateX(6px) rotate(-3deg);}
-75%{transform:translateX(22px) rotate(-8deg);}
-100%{transform:translateX(0) rotate(-6deg);}
-}
-
-@keyframes shuffleCenter{
-0%{transform:translateY(0) rotate(0deg);}
-25%{transform:translateY(-10px) rotate(2deg);}
-50%{transform:translateY(0) rotate(0deg);}
-75%{transform:translateY(-8px) rotate(-2deg);}
-100%{transform:translateY(0) rotate(0deg);}
-}
-
-@keyframes shuffleRight{
-0%{transform:translateX(0) rotate(6deg);}
-25%{transform:translateX(-18px) rotate(10deg);}
-50%{transform:translateX(-6px) rotate(3deg);}
-75%{transform:translateX(-22px) rotate(8deg);}
-100%{transform:translateX(0) rotate(6deg);}
-}
   </style>
 </head>
 <body>
@@ -387,14 +310,13 @@ animation:shuffleRight 1.2s ease-in-out infinite;
     <div class="subtitle">Votre tirage mystique</div>
 
     <div id="shuffle-zone" class="shuffle-zone">
-  <div class="shuffle-card shuffle-1"></div>
-  <div class="shuffle-card shuffle-2"></div>
-  <div class="shuffle-card shuffle-3"></div>
-</div>
+      <div class="shuffle-card shuffle-1"></div>
+      <div class="shuffle-card shuffle-2"></div>
+      <div class="shuffle-card shuffle-3"></div>
+    </div>
 
-<div id="cards" class="cards"></div>
-
-<div id="loading" class="loading">Les cartes se mélangent…</div>
+    <div id="cards" class="cards"></div>
+    <div id="loading" class="loading">Les cartes se mélangent…</div>
     <div id="summary" class="summary"></div>
     <div id="error" class="error" style="display:none;"></div>
   </div>
@@ -404,13 +326,17 @@ animation:shuffleRight 1.2s ease-in-out infinite;
 
     const supabase = createClient(
       "https://aibagvvujcyrstrarztf.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpYmFndnZ1amN5cnN0cmFyenRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTMwNTMsImV4cCI6MjA4ODEyOTA1M30.bPKnLW0y8xFp9ZjqGjWhIvhD95eq2rMK6f-M-zn4K8A"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
     );
 
     const POSITION_LABELS = {
       1: "Passé",
       2: "Présent",
-      3: "Futur"
+      3: "Futur",
+      4: "Obstacle",
+      5: "Conseil",
+      6: "Évolution",
+      7: "Issue"
     };
 
     function sleep(ms){
@@ -423,29 +349,16 @@ animation:shuffleRight 1.2s ease-in-out infinite;
       error.textContent = message;
     }
 
-function hideShuffleAndShowCards(){
-  const shuffleZone = document.getElementById("shuffle-zone");
-  if(shuffleZone){
-    shuffleZone.style.display = "none";
-  }
-
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card, index) => {
-    setTimeout(() => {
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }, index * 500);
-  });
-}
-
     function createCardElement(item){
       const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
       const slot = document.createElement("div");
       slot.className = "card-slot";
 
       const positionLabel = POSITION_LABELS[item.position_index] || `Position ${item.position_index}`;
-      const orientationLabel = item.orientation === "upright" ? "Droit" : "Renversé";
-      const imgClass = item.orientation === "reversed" ? "reversed" : "";
+      const isUpright = item.orientation === "upright";
+      const orientationLabel = isUpright ? "Droit" : "Renversé";
+      const imgClass = isUpright ? "" : "reversed";
+      const meaning = isUpright ? card.meaning_upright : card.meaning_reversed;
 
       slot.innerHTML = `
         <div class="card-3d">
@@ -460,50 +373,42 @@ function hideShuffleAndShowCards(){
           <div class="position">${positionLabel}</div>
           <div class="card-name">${card.name}</div>
           <div class="orientation">${orientationLabel}</div>
+          <p class="meaning">${meaning || ""}</p>
         </div>
       `;
-      const meaning =
-item.orientation === "upright"
-? card.meaning_upright
-: card.meaning_reversed;
-
-div.innerHTML = `
-  <img src="/${card.image_path}" alt="${card.name}">
-  <h3>${card.name}</h3>
-  <div class="orientation">${item.orientation === "upright" ? "Droit" : "Renversé"}</div>
-  <p class="meaning">${meaning}</p>
-`;
-
 
       return slot;
     }
 
-   async function animateCards(cards){
-  const cardsContainer = document.getElementById("cards");
-  const shuffleZone = document.getElementById("shuffle-zone");
-  const loading = document.getElementById("loading");
+    async function animateCards(cards){
+      const cardsContainer = document.getElementById("cards");
+      const shuffleZone = document.getElementById("shuffle-zone");
+      const loading = document.getElementById("loading");
 
-  await sleep(2200);
+      await sleep(2200);
 
-  shuffleZone.style.display = "none";
-  loading.textContent = "Les cartes se dévoilent…";
+      if (shuffleZone) {
+        shuffleZone.style.display = "none";
+      }
 
-  for (const item of cards){
-    const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
-    if (!card) continue;
+      loading.textContent = "Les cartes se dévoilent…";
 
-    const element = createCardElement(item);
-    cardsContainer.appendChild(element);
+      for (const item of cards){
+        const card = Array.isArray(item.cards) ? item.cards[0] : item.cards;
+        if (!card) continue;
 
-    await sleep(120);
-    element.classList.add("show");
+        const element = createCardElement(item);
+        cardsContainer.appendChild(element);
 
-    await sleep(650);
-    element.classList.add("flipped");
+        await sleep(120);
+        element.classList.add("show");
 
-    await sleep(420);
-  }
-}
+        await sleep(650);
+        element.classList.add("flipped");
+
+        await sleep(420);
+      }
+    }
 
     async function loadDraw() {
       const summary = document.getElementById("summary");
@@ -516,9 +421,12 @@ div.innerHTML = `
         loading.style.display = "none";
         return;
       }
-      setTimeout(() => {
-  hideShuffleAndShowCards();
-}, 2500);
+
+      if (!document.referrer.includes("success") && !document.referrer.includes("arcanaoracle.org")) {
+        showError("Accès non autorisé.");
+        loading.style.display = "none";
+        return;
+      }
 
       const { data: draw, error: drawError } = await supabase
         .from("draws")
@@ -546,7 +454,9 @@ div.innerHTML = `
           card_id,
           cards:card_id (
             name,
-            image_path
+            image_path,
+            meaning_upright,
+            meaning_reversed
           )
         `)
         .eq("draw_id", drawId)
