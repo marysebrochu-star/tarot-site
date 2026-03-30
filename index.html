@@ -1,476 +1,415 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <title>🌙 Arcana Oracle – Tirage Tarot en ligne</title>
 
-<title>🌙 Arcana Oracle – Tirage Tarot en ligne</title>
+  <meta name="description" content="Découvrez votre tirage tarot en ligne avec Arcana Oracle. Un tirage mystique passé, présent et futur pour éclairer votre chemin et révéler les messages des arcanes.">
+  <meta name="keywords" content="tarot en ligne, tirage tarot gratuit, tarot amour, tirage passé présent futur, tarot divinatoire, arcana oracle">
 
-<meta name="description" content="Découvrez votre tirage tarot en ligne avec Arcana Oracle. Un tirage mystique passé, présent et futur pour éclairer votre chemin et révéler les messages des arcanes.">
+  <meta property="og:title" content="Arcana Oracle">
+  <meta property="og:description" content="Découvrez votre tirage tarot et laissez les arcanes révéler votre destinée.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arcanaoracle.org">
+  <meta property="og:image" content="https://arcanaoracle.org/moon.png">
 
+  <link rel="icon" href="/moon.png">
 
-<meta name="keywords" content="tarot en ligne, tirage tarot gratuit, tarot amour, tirage passé présent futur, tarot divinatoire, arcana oracle">
+  <style>
+    body{
+      background:#0b0b0f;
+      color:#f5f5f5;
+      font-family:Georgia, serif;
+      text-align:center;
+      margin:0;
+      padding:0;
+    }
 
+    .main-container{
+      max-width:900px;
+      margin:0 auto;
+    }
 
-<!-- Open Graph -->
-<meta property="og:title" content="Arcana Oracle">
-<meta property="og:description" content="Découvrez votre tirage tarot et laissez les arcanes révéler votre destinée.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://arcanaoracle.org">
-<meta property="og:image" content="https://arcanaoracle.org/moon.png">
+    .page-content{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px 20px 60px 20px;
+      box-sizing:border-box;
+    }
 
-<link rel="icon" href="/moon.png">
+    .symbol{
+      font-size:40px;
+      margin-bottom:20px;
+      color:#d4af37;
+      padding-top:20px;
+    }
 
+    h1{
+      font-size:60px;
+      letter-spacing:4px;
+      color:#d4af37;
+      margin-bottom:10px;
+    }
+
+    h2{
+      color:#ffffff;
+    }
+
+    .subtitle{
+      opacity:0.8;
+      margin-bottom:40px;
+      margin-top:30px;
+    }
+
+    .tarot-image{
+      display:block;
+      width:100%;
+      height:auto;
+      margin:0;
+    }
+
+    .logo{
+      width:180px;
+      display:block;
+      margin:30px auto 20px auto;
+    }
+
+    img{
+      max-width:100%;
+      height:auto;
+    }
+
+    .tirages{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+      margin-bottom:60px;
+      margin-top:40px;
+    }
+
+    .tirage{
+      background:#111;
+      border:1px solid gold;
+      border-radius:12px;
+      padding:25px;
+      width:260px;
+      text-align:center;
+      box-sizing:border-box;
+    }
+
+    .tirage h3{
+      color:gold;
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .tirage p{
+      color:white;
+      margin-bottom:20px;
+    }
+
+    .btn{
+      background:linear-gradient(135deg, #d4af37, #f0d36b);
+      color:black;
+      padding:14px 24px;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      display:inline-block;
+      transition:0.3s;
+      box-shadow:0 0 15px rgba(212,175,55,0.4);
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 25px rgba(212,175,55,0.8);
+    }
+
+    .start-button{
+      background:#d4af37;
+      color:black;
+      padding:14px 28px;
+      border:none;
+      border-radius:8px;
+      font-size:18px;
+      cursor:pointer;
+      box-shadow:0 0 20px rgba(212,175,55,0.6);
+      transition:0.3s;
+    }
+
+    .start-button:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 30px rgba(212,175,55,1);
+    }
+
+    button:hover{
+      background:#f0d36b;
+      transform:scale(1.05);
+    }
+
+    .oracle-email{
+      max-width:700px;
+      margin:60px auto;
+      padding:40px;
+      background:rgba(255,255,255,0.05);
+      border-radius:16px;
+      border:1px solid rgba(212,175,55,0.4);
+      text-align:center;
+      box-sizing:border-box;
+    }
+
+    .oracle-small{
+      font-size:14px;
+      opacity:0.8;
+      margin-top:15px;
+    }
+
+    .newsletter-box{
+      max-width:700px;
+      margin:40px auto;
+      padding:30px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(212,175,55,0.3);
+      border-radius:16px;
+      text-align:center;
+    }
+
+    .newsletter-box h2{
+      color:#d4af37;
+      margin-bottom:10px;
+    }
+
+    .newsletter-box p{
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .newsletter-box input,
+    .oracle-email input,
+    .popup-content input{
+      width:70%;
+      max-width:420px;
+      padding:14px;
+      border-radius:8px;
+      border:none;
+      margin-top:15px;
+      font-size:16px;
+    }
+
+    .newsletter-box button,
+    .oracle-email button,
+    .popup-content button{
+      background:#d4af37;
+      border:none;
+      padding:14px 22px;
+      font-size:16px;
+      border-radius:8px;
+      cursor:pointer;
+      margin-top:15px;
+    }
+
+    .cards{
+      margin-top:60px;
+      opacity:0.5;
+      font-size:14px;
+    }
+
+    .section-title{
+      text-align:center;
+      color:gold;
+      font-size:36px;
+      margin-top:60px;
+      margin-bottom:40px;
+    }
+
+    .links{
+      margin-top:40px;
+      line-height:1.9;
+    }
+
+    .links a{
+      color:#d4af37;
+      text-decoration:none;
+    }
+
+    .links a:hover{
+      text-decoration:underline;
+    }
+
+    .seo-text{
+      max-width:760px;
+      margin:0 auto;
+      line-height:1.7;
+    }
+
+    .popup{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+      padding:20px;
+      box-sizing:border-box;
+    }
+
+    .popup-content{
+      background:#0b0f1a;
+      padding:40px;
+      border-radius:15px;
+      text-align:center;
+      border:1px solid gold;
+      max-width:400px;
+      width:100%;
+      box-sizing:border-box;
+    }
+
+    .popup-content h2{
+      color:#d4af37;
+    }
+
+    .close-popup{
+      background:none !important;
+      color:white;
+      margin-top:10px;
+      box-shadow:none;
+    }
+  </style>
 </head>
 
-  
-<link rel="icon" href="/moon.png">
-  
-</head>
-<style>
-
-.oracle-email{
-max-width:700px;
-margin:60px auto;
-padding:40px;
-background:rgba(255,255,255,0.05);
-border-radius:16px;
-border:1px solid rgba(212,175,55,0.4);
-text-align:center;
-}
-
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-
-.popup-content{
-background:#0b0f1a;
-padding:40px;
-border-radius:15px;
-text-align:center;
-border:1px solid gold;
-max-width:400px;
-}
-
-.popup-content h2{
-color:#d4af37;
-}
-
-.popup-content input{
-width:80%;
-padding:12px;
-margin-top:15px;
-border-radius:6px;
-border:none;
-}
-
-.popup-content button{
-margin-top:15px;
-padding:12px 20px;
-background:#d4af37;
-border:none;
-border-radius:6px;
-cursor:pointer;
-}
-
-.close-popup{
-background:none;
-color:white;
-margin-top:10px;
-}
-
-.tirages{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-bottom:60px;
-}
-
-.tirage{
-background:#111;
-border:1px solid gold;
-border-radius:12px;
-padding:25px;
-width:260px;
-text-align:center;
-}
-
-.tirage h3{
-color:gold;
-font-size:24px;
-margin-bottom:10px;
-}
-
-.tirage p{
-color:white;
-margin-bottom:20px;
-}
-
-.btn{
-background:gold;
-color:black;
-padding:12px 22px;
-text-decoration:none;
-border-radius:6px;
-font-weight:bold;
-}
-
-body{
-background:#0b0b0f;
-color:#f5f5f5;
-font-family: Georgia, serif;
-text-align:center;
-margin:0;
-padding:0;
-}
-h1{
-font-size:60px;
-letter-spacing:4px;
-color:#d4af37;
-margin-bottom:10px;
-}
-
-.subtitle{
-opacity:0.8;
-margin-bottom:40px;
-}
-
-.symbol{
-font-size:40px;
-margin-bottom:20px;
-color:#d4af37;
-}
-
-.start-button{
-background:#d4af37;
-color:black;
-padding:14px 28px;
-border:none;
-border-radius:8px;
-font-size:18px;
-cursor:pointer;
-box-shadow:0 0 20px rgba(212,175,55,0.6);
-transition:0.3s;
-}
-
-.start-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px rgba(212,175,55,1);
-}
-
-button:hover{
-background:#f0d36b;
-transform:scale(1.05);
-}
-<h2>Rejoignez le cercle Arcana Oracle</h2>
-<p>Recevez par courriel les guidances du tarot, les nouveautés et les messages mystiques.</p>
-
-<div class="newsletter-box">
-
-<h2>Recevez vos messages mystiques par courriel</h2>
-
-<p>Inscrivez-vous pour recevoir les nouveautés et les guidances d’Arcana Oracle.</p>
-
-<form action="https://formsubmit.co/arcanaoracle777@gmail.com" method="POST">
-
-<input type="email" name="email" placeholder="Votre courriel" required>
-
-<button type="submit">Je m’inscris</button>
-
-</form>
-
-<p style="font-size:14px; opacity:0.7;">
-✨ Recevez la carte du jour et les guidances du tarot.
-</p>
-
-</div>
-}
-tarot-bateleur{
-display:block;
-margin-left:auto;
-margin-right:auto;
-width:420px;
-max-width:90%;
-
-}
-.cards{
-margin-top:60px;
-opacity:0.5;
-font-size:14px;
-}
-  
-.logo{
-width:180px;
-display:block;
-margin:10px auto 20px auto;
-
-}
-
-.section-title{
-text-align:center;
-color:gold;
-font-size:36px;
-margin-top:60px;
-margin-bottom:40px;
-}
- .newsletter-box{
-max-width:700px;
-margin:40px auto;
-padding:30px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(212,175,55,0.3);
-border-radius:16px;
-text-align:center;
-}
-
-.newsletter-box h2{
-color:#d4af37;
-margin-bottom:10px;
-}
-
-.newsletter-box p{
-font-size:18px;
-line-height:1.6;
-}
-
-.newsletter-box input{
-width:70%;
-max-width:420px;
-padding:14px;
-border-radius:8px;
-border:none;
-margin-top:15px;
-font-size:16px;
-}
-
-.newsletter-box button{
-background:#d4af37;
-border:none;
-padding:14px 22px;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-margin-top:15px;
-}
- .main-container {
-  max-width: 900px;
-  margin: 0 auto;
-} 
-  .hero-image {
-  width: 100%;
-  max-width: 900px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-  .page-content{
-max-width:900px;
-margin:0 auto;
-padding:40px 20px 60px 20px;
-box-sizing:border-box;
-}
-
-.tarot-image{
-display:block;
-width:100%;
-height:auto;
-margin:0;
-}
-
-.logo{
-width:180px;
-display:block;
-margin:30px auto 20px auto;
-}
-
-img{
-max-width:100%;
-height:auto;
-}
-.btn{
-background:linear-gradient(135deg, #d4af37, #f0d36b);
-color:black;
-padding:14px 24px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-display:inline-block;
-transition:0.3s;
-box-shadow:0 0 15px rgba(212,175,55,0.4);
-}
-
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(212,175,55,0.8);
-}
-  
-</style>
-</head>
-<meta name="description" content="Découvrez votre tirage tarot en ligne avec Arcana Oracle. Un tirage mystique passé, présent et futur pour éclairer votre chemin et révéler les messages des arcanes.">
 <body>
-<div class="main-container">
+  <div class="main-container">
 
-<div class="symbol">
-☾ ✦ ☽
-</div>
+    <div class="symbol">☾ ✦ ☽</div>
 
-<h1>Arcana Oracle</h1>
+    <h1>Arcana Oracle</h1>
 
-<img src="/images/arcana-oracle-tarot.png" alt="Arcana Oracle Tarot" class="tarot-image">
-<div class="page-content">  
-<img src="/images/logo-arcana-oracle-tarot.png" alt="Arcana Oracle" class="logo">
+    <img src="/images/arcana-oracle-tarot.png" alt="Arcana Oracle Tarot" class="tarot-image">
 
-<h2>Découvrez votre passé, votre présent et votre futur grâce aux arcanes du tarot</h2>
+    <div class="page-content">
+      <img src="/images/logo-arcana-oracle-tarot.png" alt="Arcana Oracle" class="logo">
 
- <div class="seo-text">
+      <h2>Découvrez votre passé, votre présent et votre futur grâce aux arcanes du tarot</h2>
 
-<h2>Tirage Tarot en ligne</h2>
+      <div class="seo-text">
+        <h2>Tirage Tarot en ligne</h2>
 
-<p>
-Le tarot divinatoire est un art ancien utilisé pour révéler les messages cachés du destin.
-Grâce aux arcanes majeurs du tarot, Arcana Oracle vous propose un tirage mystique
-passé, présent et futur pour mieux comprendre votre chemin de vie.
-</p>
+        <p>
+          Le tarot divinatoire est un art ancien utilisé pour révéler les messages cachés du destin.
+          Grâce aux arcanes majeurs du tarot, Arcana Oracle vous propose un tirage mystique
+          passé, présent et futur pour mieux comprendre votre chemin de vie.
+        </p>
 
-<p>
-Chaque carte du tarot possède une symbolique profonde. En révélant votre tirage,
-les arcanes peuvent éclairer vos relations, votre avenir professionnel,
-vos choix amoureux et les transformations à venir.
-</p>
+        <p>
+          Chaque carte du tarot possède une symbolique profonde. En révélant votre tirage,
+          les arcanes peuvent éclairer vos relations, votre avenir professionnel,
+          vos choix amoureux et les transformations à venir.
+        </p>
+      </div>
 
-</div>
+      <div class="tirages">
+        <div class="tirage">
+          <h3>🔮 Petit tirage</h3>
+          <p>3 cartes pour éclairer votre situation actuelle.</p>
+          <a href="https://buy.stripe.com/dRmbJ3ep3cmy4hg6cs4Rq06" class="btn">🔮 Petit tirage — CA$11</a>
+          <p style="font-size:14px; opacity:0.7;">Paiement sécurisé • Accès immédiat</p>
+        </div>
 
-<div class="tirages">
+        <div class="tirage">
+          <h3>🃏 Tirage moyen</h3>
+          <p>7 cartes pour comprendre votre chemin et vos blocages.</p>
+          <a href="https://buy.stripe.com/eVqeVf5Sx2LY010dEU4Rq07" class="btn">✨ Tirage moyen — CA$22</a>
+          <p style="font-size:14px; opacity:0.7;">Paiement sécurisé • Accès immédiat</p>
+        </div>
 
-<div class="tirage">
-<h3>🔮 Petit tirage</h3>
-<p>3 cartes pour éclairer votre situation actuelle.</p>
-  
-<a href="https://buy.stripe.com/dRmbJ3ep3cmy4hg6cs4Rq06" class="btn">🔮 Petit tirage — CA$11</a>
+        <div class="tirage">
+          <h3>🌙 Tirage développement</h3>
+          <p>Analyse complète avec les arcanes majeurs et mineurs.</p>
+          <a href="https://buy.stripe.com/dRm8wR80F1HU6pobwM4Rq08" class="btn">🌙 Tirage complet — CA$33</a>
+          <p style="font-size:14px; opacity:0.7;">Paiement sécurisé • Accès immédiat</p>
+        </div>
+      </div>
 
-<p style="font-size:14px; opacity:0.7;">
-Paiement sécurisé • Accès immédiat
-</p>
-</div>
-  
-<div class="tirage">
-<h3>🃏 Tirage moyen</h3>
-<p>7 cartes pour comprendre votre chemin et vos blocages.</p>
-  
-<a href="https://buy.stripe.com/eVqeVf5Sx2LY010dEU4Rq07" class="btn">✨ Tirage moyen — CA$22</a>
+      <div class="subtitle">
+        Tarot divinatoire — révélations et guidance
+      </div>
 
-<p style="font-size:14px; opacity:0.7;">
-Paiement sécurisé • Accès immédiat
-</p>
-</div>  
-  
-<div class="tirage">
-<h3>🌙 Tirage développement</h3>
-<p>Analyse complète avec les arcanes majeurs et mineurs.</p>
-  
-<a href="https://buy.stripe.com/dRm8wR80F1HU6pobwM4Rq08" class="btn">🌙 Tirage complet — CA$33</a>
+      <!-- ORACLE DU JOUR -->
+      <div class="oracle-email">
+        <h2>🔮 Recevez votre Oracle du jour</h2>
 
-<p style="font-size:14px; opacity:0.7;">
-Paiement sécurisé • Accès immédiat
-</p>
-</div>
+        <p>
+          Chaque matin, recevez une carte du tarot et un message mystique pour guider votre journée.
+        </p>
 
-<div class="subtitle">
-Tarot divinatoire — révélations et guidance
-</div>
+        <form action="https://formsubmit.co/arcanaoracle777@gmail.com" method="POST">
+          <input type="email" name="email" placeholder="Votre adresse courriel" required>
+          <button type="submit">Recevoir mon Oracle</button>
+        </form>
+      </div>
 
-<a href="/draw.html?product=small">
-  
-  <button class="start-button">Commencer votre tirage</button>
+      <p class="oracle-small">
+        ✨ Gratuit – un message mystique directement dans votre boîte courriel
+      </p>
 
-</a>
+      <div class="links">
+        <h3>Explorer les tirages du tarot</h3>
 
-<!-- ORACLE DU JOUR -->
-<div class="oracle-email">
+        <a href="/tarot-du-jour.html">Tarot du jour</a><br>
+        <a href="/tarot-amour.html">Tarot amour</a><br>
+        <a href="/tirage-tarot-gratuit.html">Tirage tarot gratuit</a><br>
+        <a href="/tarot-futur.html">Tarot futur</a><br>
+        <a href="/tarot-travail.html">Tarot travail</a><br>
+        <a href="/tarot-argent.html">Tarot argent</a><br>
+        <a href="/cartes-tarot.html">Les cartes du tarot</a>
+      </div>
 
-<h2>🔮 Recevez votre Oracle du jour</h2>
+      <div class="cards">
+        Passé • Présent • Futur
+      </div>
+    </div>
+  </div>
 
-<p>
-Chaque matin, recevez une carte du tarot et un message mystique pour guider votre journée.
-</p>
+  <div id="oracle-popup" class="popup">
+    <div class="popup-content">
+      <h2>🔮 Votre message mystique vous attend</h2>
 
-<form action="https://formsubmit.co/arcanaoracle777@gmail.com" method="POST">
+      <p>Inscrivez-vous pour recevoir la carte du jour et les guidances d’Arcana Oracle.</p>
 
-<input type="email" name="email" placeholder="Votre adresse courriel" required>
+      <form action="https://formsubmit.co/arcanaoracle777@gmail.com" method="POST">
+        <input type="email" name="email" placeholder="Votre courriel" required>
 
-<button type="submit">Recevoir mon Oracle</button>
+        <p style="font-size:14px;opacity:0.7;">
+          ✨ Plus de 1000 chercheurs spirituels reçoivent déjà leur oracle quotidien.
+        </p>
 
-</form>
+        <button type="submit">Recevoir mon message</button>
+      </form>
 
-</div>
-<p class="oracle-small">
-✨ Gratuit – un message mystique directement dans votre boîte courriel
-</p>
+      <button class="close-popup" onclick="closePopup()">Fermer</button>
+    </div>
+  </div>
 
-</div>
+  <script>
+    setTimeout(function(){
+      const popup = document.getElementById("oracle-popup");
+      if (popup) {
+        popup.style.display = "flex";
+      }
+    }, 8000);
 
-<div class="links">
-
-<h3>Explorer les tirages du tarot</h3>
-
-<a href="/tarot-du-jour.html">Tarot du jour</a><br>
-<a href="/tarot-amour.html">Tarot amour</a><br>
-<a href="/tirage-tarot-gratuit.html">Tirage tarot gratuit</a><br>
-<a href="/tarot-futur.html">Tarot futur</a><br>
-<a href="/tarot-travail.html">Tarot travail</a><br>
-<a href="/tarot-argent.html">Tarot argent</a><br>
-<a href="/cartes-tarot.html">Les cartes du tarot</a>
-
-</div>
-  
-<div class="cards">
-Passé • Présent • Futur
-</div>
-
-<h2 class="section-title">Choisissez votre tirage</h2>
-
-setTimeout(function(){
-document.getElementById("oracle-popup").style.display="flex";
-},8000);
-
-function closePopup(){
-document.getElementById("oracle-popup").style.display="none";
-}
-
-</script>
-
-<div id="oracle-popup" class="popup">
-
-<div class="popup-content">
-
-<h2>🔮 Votre message mystique vous attend</h2>
-
-<p>Inscrivez-vous pour recevoir la carte du jour et les guidances d’Arcana Oracle.</p>
-
-<form action="https://formsubmit.co/arcanaoracle777@gmail.com" method="POST">
-
-<input type="email" name="email" placeholder="Votre courriel" required>
-
-<p style="margin-top:10px; font-size:14px; opacity:0.7;">
-Paiement sécurisé • Accès immédiat à votre tirage
-</p>
-
-<button type="submit">Recevoir mon message</button>
-
-</form>
-
-<button class="close-popup" onclick="closePopup()">Fermer</button>
-
-</div>
+    function closePopup(){
+      const popup = document.getElementById("oracle-popup");
+      if (popup) {
+        popup.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
