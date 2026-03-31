@@ -35,8 +35,6 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  console.log("Webhook hit");
-
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
   const supabase = createClient(
@@ -55,31 +53,33 @@ export default async function handler(req, res) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET
     );
-
-    console.log("Stripe event:", event.type);
   } catch (err) {
-    console.error("Signature error:", err.message);
+    console.error("Webhook signature failed:", err.message);
     return res.status(400).json({ error: err.message });
   }
 
   try {
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
-
       const sessionId = session.id;
       const productCode = getProductCodeFromSession(session);
 
-      console.log("Processing session:", sessionId);
+      console.log("Session ID:", sessionId);
+      console.log("Product code:", productCode);
 
-      const { data: existing } = await supabase
+      const { data: existing, error: existingError } = await supabase
         .from("paid_sessions")
-        .select("*")
+        .select("session_id, draw_id")
         .eq("session_id", sessionId)
         .maybeSingle();
 
+      if (existingError) {
+        throw new Error("Erreur lecture paid_sessions : " + existingError.message);
+      }
+
       if (existing) {
-        console.log("Already processed");
-        return res.status(200).json({ ok: true });
+        console.log("Déjà traité");
+        return res.status(200).json({ ok: true, already_processed: true });
       }
 
       const { data: drawId, error: rpcError } = await supabase.rpc(
@@ -88,23 +88,35 @@ export default async function handler(req, res) {
       );
 
       if (rpcError) {
-        console.error("RPC error:", rpcError.message);
-        throw rpcError;
+        throw new Error("Erreur RPC : " + rpcError.message);
       }
 
-      await supabase.from("paid_sessions").insert({
-        session_id: sessionId,
-        product_code: productCode,
-        draw_id: Number(drawId),
-        payment_status: "paid",
-      });
+      if (!drawId) {
+        throw new Error("Aucun drawId retourné");
+      }
 
-      console.log("Draw created:", drawId);
+      console.log("Draw ID créé :", drawId);
+
+      const { data: inserted, error: insertError } = await supabase
+        .from("paid_sessions")
+        .insert({
+          session_id: sessionId,
+          product_code: productCode,
+          draw_id: Number(drawId),
+          payment_status: "paid",
+        })
+        .select();
+
+      if (insertError) {
+        throw new Error("Erreur insertion paid_sessions : " + insertError.message);
+      }
+
+      console.log("Insertion paid_sessions OK :", inserted);
     }
 
     return res.status(200).json({ received: true });
   } catch (err) {
-    console.error("Server error:", err.message);
+    console.error("Webhook server error:", err.message);
     return res.status(500).json({ error: err.message });
   }
 }
