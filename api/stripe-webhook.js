@@ -54,9 +54,9 @@ export default async function handler(req, res) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    console.error("Webhook signature failed:", err.message);
-    console.error("Webhook error:", err.message);
-return res.status(200).json({ received: true });
+  console.error("Webhook signature failed:", err.message);
+  return res.status(400).json({ error: err.message });
+};
   }
 
   try {
@@ -124,7 +124,8 @@ return res.status(200).json({ received: true });
 
     return res.status(200).json({ received: true });
   } catch (err) {
-    console.error("Webhook server error:", err.message);
-    return res.status(500).json({ error: err.message });
+  console.error("Webhook server error:", err.message);
+  return res.status(200).json({ received: true });
+}
   }
 }
