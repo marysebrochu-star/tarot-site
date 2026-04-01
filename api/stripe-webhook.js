@@ -59,7 +59,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    if (event.type === "checkout.session.completed") {
+console.log("EVENT TYPE:", event.type);
+
+if (event.type === "checkout.session.completed") {
+  console.log("✅ INSIDE checkout.session.completed"); {
       const session = event.data.object;
       const sessionId = session.id;
       const productCode = getProductCodeFromSession(session);
