@@ -78,7 +78,8 @@ if (event.type === "checkout.session.completed") {
         .maybeSingle();
 
       if (existingError) {
-        throw new Error("Erreur lecture paid_sessions : " + existingError.message);
+        console.error("ERROR:", err.message);
+return res.status(200).json({ received: true });
       }
 
       if (existing) {
@@ -92,11 +93,13 @@ if (event.type === "checkout.session.completed") {
       );
 
       if (rpcError) {
-        throw new Error("Erreur RPC : " + rpcError.message);
+        console.error("ERROR:", err.message);
+return res.status(200).json({ received: true });
       }
 
       if (!drawId) {
-        throw new Error("Aucun drawId retourné");
+        console.error("ERROR:", err.message);
+return res.status(200).json({ received: true });
       }
 
       console.log("Draw ID créé :", drawId);
@@ -112,7 +115,8 @@ if (event.type === "checkout.session.completed") {
         .select();
 
       if (insertError) {
-        throw new Error("Erreur insertion paid_sessions : " + insertError.message);
+        console.error("ERROR:", err.message);
+return res.status(200).json({ received: true });
       }
 
       console.log("Insertion paid_sessions OK :", inserted);
