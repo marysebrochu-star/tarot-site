@@ -1,9 +1,10 @@
 {
   "name": "arcana-oracle",
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.49.8",
-    "stripe": "^18.0.0"
+    "stripe": "^18.0.0",
     "resend": "^4.0.0"
   }
 }
