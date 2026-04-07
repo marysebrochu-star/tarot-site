@@ -1,5 +1,6 @@
- const Stripe = require("stripe");
+const Stripe = require("stripe");
 const { createClient } = require("@supabase/supabase-js");
+const { Resend } = require("resend");
 
 export const config = {
   api: {
@@ -52,7 +53,7 @@ export default async function handler(req, res) {
       return res.status(200).json({ received: true, ignored: true });
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const supabase = createClient(
       process.env.SUPABASE_URL,
       process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -103,6 +104,33 @@ export default async function handler(req, res) {
     if (insertError) {
       console.error("Insert error:", insertError.message);
       return res.status(500).json({ error: insertError.message });
+    }
+
+    const customerEmail = session.customer_details?.email;
+
+    if (customerEmail) {
+      const drawLink = `https://www.arcanaoracle.org/draw.html?id=${drawId}`;
+
+      try {
+        await resend.emails.send({
+          from: "Arcana Oracle <onboarding@resend.dev>",
+          to: customerEmail,
+          subject: "✨ Votre tirage Arcana Oracle est prêt",
+          html: `
+            <h2>✨ Votre tirage est prêt ✨</h2>
+            <p>Merci pour votre confiance.</p>
+            <p>Votre tirage est disponible ici :</p>
+            <p><a href="${drawLink}">${drawLink}</a></p>
+            <br>
+            <p>Que les arcanes éclairent votre chemin 🔮</p>
+            <p><strong>Arcana Oracle</strong></p>
+          `,
+        });
+
+        console.log("Email envoyé à :", customerEmail);
+      } catch (emailError) {
+        console.error("Erreur envoi email :", emailError.message);
+      }
     }
 
     return res.status(200).json({ received: true });
