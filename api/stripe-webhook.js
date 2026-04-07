@@ -106,36 +106,66 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: insertError.message });
     }
 
-    const customerEmail = session.customer_details?.email;
+   const customerEmail = session.customer_details?.email;
 
-    if (customerEmail) {
-      const drawLink = `https://www.arcanaoracle.org/draw.html?id=${drawId}`;
+if (customerEmail) {
+  const drawLink = `https://www.arcanaoracle.org/draw.html?id=${drawId}`;
 
-      try {
-        await resend.emails.send({
-          from: "Arcana Oracle <onboarding@resend.dev>",
-          to: customerEmail,
-          subject: "✨ Votre tirage Arcana Oracle est prêt",
-          html: `
-            <h2>✨ Votre tirage est prêt ✨</h2>
-            <p>Merci pour votre confiance.</p>
-            <p>Votre tirage est disponible ici :</p>
-            <p><a href="${drawLink}">${drawLink}</a></p>
-            <br>
-            <p>Que les arcanes éclairent votre chemin 🔮</p>
-            <p><strong>Arcana Oracle</strong></p>
-          `,
-        });
+  try {
+    await resend.emails.send({
+      from: "Arcana Oracle <onboarding@resend.dev>",
+      to: customerEmail,
+      subject: "✨ Votre tirage Arcana Oracle est prêt",
+      html: `
+        <div style="margin:0;padding:0;background:#05070d;font-family:Georgia,serif;color:#f5f5f5;">
+          <div style="max-width:680px;margin:0 auto;padding:40px 20px;">
+            
+            <div style="text-align:center;padding:30px 20px 10px 20px;">
+              <div style="font-size:34px;color:#d4af37;font-weight:bold;letter-spacing:2px;">
+                ✨ Arcana Oracle ✨
+              </div>
+              <div style="margin-top:12px;font-size:18px;color:#d9d1b0;">
+                Votre tirage mystique est prêt
+              </div>
+            </div>
 
-        console.log("Email envoyé à :", customerEmail);
-      } catch (emailError) {
-        console.error("Erreur envoi email :", emailError.message);
-      }
-    }
+            <div style="margin-top:30px;background:#0b1020;border:1px solid rgba(212,175,55,0.35);border-radius:16px;padding:40px 30px;text-align:center;box-shadow:0 0 30px rgba(0,0,0,0.35);">
+              
+              <h2 style="margin:0 0 20px 0;color:#d4af37;font-size:30px;">
+                🔮 Votre tirage vous attend
+              </h2>
 
-    return res.status(200).json({ received: true });
-  } catch (err) {
-    console.error("Webhook runtime error:", err.message);
-    return res.status(500).json({ error: err.message });
+              <p style="font-size:18px;line-height:1.7;color:#f5f5f5;margin:0 0 18px 0;">
+                Merci pour votre confiance.
+              </p>
+
+              <p style="font-size:17px;line-height:1.7;color:#d9d9d9;margin:0 0 30px 0;">
+                Les arcanes ont parlé.<br>
+                Votre tirage personnalisé est maintenant disponible.
+              </p>
+
+              <a href="${drawLink}" style="display:inline-block;background:#d4af37;color:#05070d;text-decoration:none;padding:16px 28px;border-radius:10px;font-weight:bold;font-size:17px;">
+                Voir mon tirage
+              </a>
+
+              <p style="margin:30px 0 0 0;font-size:15px;line-height:1.8;color:#cfcfcf;">
+                Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :<br>
+                <span style="color:#d4af37;">${drawLink}</span>
+              </p>
+            </div>
+
+            <div style="text-align:center;padding:30px 20px 10px 20px;color:#b8b8b8;font-size:15px;line-height:1.8;">
+              Que les arcanes éclairent votre chemin,<br>
+              <span style="color:#d4af37;font-weight:bold;">Arcana Oracle</span>
+            </div>
+
+          </div>
+        </div>
+      `,
+    });
+
+    console.log("Email envoyé à :", customerEmail);
+  } catch (emailError) {
+    console.error("Erreur envoi email :", emailError.message);
   }
 }
