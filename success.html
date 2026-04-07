@@ -5,28 +5,40 @@
   <title>Paiement confirmé</title>
   <style>
     body {
-      background:#0b0b0f;
-      color:#f5f5f5;
-      font-family:Georgia, serif;
-      text-align:center;
-      padding:60px 20px;
-      margin:0;
+      margin: 0;
+      padding: 60px 20px;
+      background: #05070d;
+      color: #f5f5f5;
+      font-family: Georgia, serif;
+      text-align: center;
     }
 
     h1 {
-      color:#d4af37;
-      margin-bottom:20px;
+      color: #d4af37;
+      font-size: 42px;
+      margin-bottom: 20px;
     }
 
-    #message {
-      font-size:20px;
-      margin-top:20px;
+    p {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    .box {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
     }
   </style>
 </head>
 <body>
-  <h1>Paiement confirmé ✅</h1>
-  <p id="message">Nous préparons votre tirage...</p>
+  <div class="box">
+    <h1>Paiement confirmé ✅</h1>
+    <p id="message">Préparation de votre tirage...</p>
+  </div>
 
   <script>
     async function wait(ms) {
@@ -49,24 +61,28 @@
           const data = await res.json();
 
           if (res.ok && data.draw_id) {
-            message.textContent = "Tirage prêt...";
+            message.textContent = "Votre tirage est prêt. Redirection...";
             window.location.href = `/draw.html?id=${encodeURIComponent(data.draw_id)}`;
             return;
           }
 
-          message.textContent = "Paiement reçu. Préparation du tirage...";
+          message.textContent = "Paiement reçu. Préparation de votre tirage...";
         } catch (e) {
-          message.textContent = "Préparation du tirage...";
+          message.textContent = "Préparation de votre tirage...";
         }
 
         await wait(1500);
       }
 
-      message.textContent = "Le paiement est reçu, mais le tirage prend un peu plus de temps. Rechargez cette page dans quelques secondes.";
+      message.innerHTML = `
+        Le tirage existe bien, mais la redirection a pris trop de temps.<br><br>
+        <a href="/api/get-draw?session_id=${encodeURIComponent(sessionId)}" style="color: gold;">
+          Vérifier manuellement le tirage
+        </a>
+      `;
     }
 
     run();
   </script>
 </body>
 </html>
-
