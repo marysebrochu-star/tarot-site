@@ -1,5 +1,4 @@
-import Stripe from "stripe";
-import { createClient } from "@supabase/supabase-js";
+const { createClient } = require("@supabase/supabase-js");
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -12,21 +11,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing session_id" });
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2025-02-24.acacia",
-  });
-
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
   try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-
-    if (!session || session.payment_status !== "paid") {
-      return res.status(403).json({ error: "Payment not completed" });
-    }
+    const supabase = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
+    );
 
     const { data, error } = await supabase
       .from("paid_sessions")
@@ -46,6 +35,7 @@ export default async function handler(req, res) {
       ok: true,
       draw_id: data.draw_id,
       product_code: data.product_code,
+      payment_status: data.payment_status,
     });
   } catch (err) {
     return res.status(500).json({ error: err.message });
