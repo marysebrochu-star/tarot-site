@@ -13,6 +13,16 @@
       text-align: center;
     }
 
+    .box {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    }
+
     h1 {
       color: #d4af37;
       font-size: 42px;
@@ -22,19 +32,17 @@
     p {
       font-size: 22px;
       line-height: 1.5;
-    }
-
-    .box {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 40px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.03);
+      margin: 0;
     }
 
     a {
-      color: gold;
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -79,12 +87,8 @@
       }
 
       message.innerHTML = `
-        Le tirage n'est pas encore prêt.<br><br>
-        Rechargez cette page dans quelques secondes<br>
-        ou vérifiez ici :<br><br>
-        <a href="/api/get-draw?session_id=${encodeURIComponent(sessionId)}">
-          Vérifier mon tirage
-        </a>
+        Le tirage existe peut-être déjà, mais la redirection a pris trop de temps.<br><br>
+        <a href="/api/get-draw?session_id=${encodeURIComponent(sessionId)}">Vérifier mon tirage</a>
       `;
     }
 
