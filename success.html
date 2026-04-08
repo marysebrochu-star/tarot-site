@@ -32,6 +32,10 @@
       border-radius: 14px;
       background: rgba(255,255,255,0.03);
     }
+
+    a {
+      color: gold;
+    }
   </style>
 </head>
 <body>
@@ -55,7 +59,7 @@
         return;
       }
 
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 20; i++) {
         try {
           const res = await fetch(`/api/get-draw?session_id=${encodeURIComponent(sessionId)}`);
           const data = await res.json();
@@ -71,13 +75,15 @@
           message.textContent = "Préparation de votre tirage...";
         }
 
-        await wait(1500);
+        await wait(2000);
       }
 
       message.innerHTML = `
-        Le tirage existe bien, mais la redirection a pris trop de temps.<br><br>
-        <a href="/api/get-draw?session_id=${encodeURIComponent(sessionId)}" style="color: gold;">
-          Vérifier manuellement le tirage
+        Le tirage n'est pas encore prêt.<br><br>
+        Rechargez cette page dans quelques secondes<br>
+        ou vérifiez ici :<br><br>
+        <a href="/api/get-draw?session_id=${encodeURIComponent(sessionId)}">
+          Vérifier mon tirage
         </a>
       `;
     }
